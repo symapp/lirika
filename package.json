@@ -1,5 +1,5 @@
 {
-  "name": "project-template",
+  "name": "Lirika",
   "scripts": {
     "dev": "concurrently --kill-others \"npm run server\" \"npm run lint-watch\" \"next dev\"",
     "build:app": "concurrently --kill-others \"npm run server\" \"npm run build\"",
