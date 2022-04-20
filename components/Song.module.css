@@ -1,0 +1,59 @@
+.song {
+    background-color: #343434;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+}
+
+.song:nth-child(1) {
+    margin: 0;
+}
+
+.imageContainer {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: 1px solid #C1ABD6;
+    border-radius: 5px;
+}
+
+.songInfo {
+    flex: 1 1 auto;
+    display: flex;
+    margin: 0 1rem;
+    justify-content: space-between;
+}
+
+.songInfo p {
+    width: 50px;
+    margin: auto 0;
+    text-align: right;
+    font-family: 'Azeret Mono', monospace;
+}
+
+.songInfo h4 {
+    width: 100px;
+    margin: auto 0;
+}
+
+.songInfo h3 {
+    width: 400px;
+    margin: auto 0;
+}
+
+.likeImageContainer {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin: auto 0.5rem;
+}
+
+.unliked {
+    display: none !important;
+}
+
+.song:hover .unliked{
+    display: block !important;
+}

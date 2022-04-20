@@ -2,19 +2,20 @@
     position: sticky;
     top: 0;
     width: 100%;
-    padding: 0.5em;
-    box-shadow: 0 1px 6px 0 rgb(0 0 0 / 20%);
     display: flex;
-    background-color: white;
+    background-color: #1e1e1e;
     z-index: 99
 }
 
-.header > a {
-    color: black !important;
+.header > a, .header > div {
+    color: #C1ABD6 !important;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.5rem;
+    padding: 1rem;
+    list-style: none;
 }
 
-.header > a:hover {
+.header > a:hover, .header > div:hover {
     text-decoration: none;
+    background-color: #EFE9EF0C;
 }

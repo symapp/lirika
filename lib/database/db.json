@@ -1,14 +1,111 @@
 {
-  "technologies": [
-    { "id": 1, "name": "reactjs"},
-    { "id": 2, "name": "nextjs"}
-  ],
   "users": [
     {
+      "id": 1,
       "email": "admin@admin.ch",
       "password": "$2a$10$YkFbz7nkfUtM64tKLMfPme2IOwuBEVCWXcGv75NP6BEdeV94eQ/TG",
       "name": "Adam Admin",
-      "id": 1
+      "roles": [
+        "admin",
+        "creator"
+      ],
+      "likedSongsIds": [
+        1
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": 1,
+      "name": "songname",
+      "albumId": 1,
+      "likes": 90,
+      "artistIds": [
+        1
+      ],
+      "genres": [
+        "test"
+      ],
+      "length": 197,
+      "lyric": [
+        {
+          "timestamp": 10,
+          "text": "test line one"
+        },
+        {
+          "timestamp": 20,
+          "text": "test line two"
+        }
+      ],
+      "lastEdit": "0"
+    },
+    {
+      "id": 2,
+      "name": "songname2",
+      "albumId": 1,
+      "likes": 12,
+      "artistIds": [
+        1
+      ],
+      "genres": [
+        "test"
+      ],
+      "length": 120,
+      "lyric": [
+        {
+          "timestamp": 10,
+          "text": "test line one"
+        },
+        {
+          "timestamp": 20,
+          "text": "test line two"
+        }
+      ],
+      "lastEdit": "0"
+    },
+    {
+      "id": 3,
+      "name": "songname3",
+      "likes": 12,
+      "albumId": 1,
+      "artistIds": [
+        1
+      ],
+      "genres": [
+        "test"
+      ],
+      "length": 120,
+      "lyric": [
+        {
+          "timestamp": 10,
+          "text": "test line one"
+        },
+        {
+          "timestamp": 20,
+          "text": "test line two"
+        }
+      ],
+      "lastEdit": "0"
+    }
+  ],
+  "albums": [
+    {
+      "id": 1,
+      "name": "albumname",
+      "year": 2005,
+      "artist-ids": [
+        1
+      ],
+      "coverImage": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
+      "last-edit": "0"
+    }
+  ],
+  "artist": [
+    {
+      "id": 1,
+      "name": "artistname",
+      "image-path": "",
+      "last-edit": 0
     }
   ]
 }
