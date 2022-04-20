@@ -51,7 +51,7 @@ export default function LoginPage({ session }) {
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <fieldset>
-                    <label htmlFor="email">Username</label>
+                    <label htmlFor="email">E-Mail</label>
                     <input type="email" name="email" id="email" onChange={handleChange} value={user.email}/>
                 </fieldset>
                 <fieldset>
@@ -59,7 +59,7 @@ export default function LoginPage({ session }) {
                     <input type="password" name="password" id="password" onChange={handleChange} value={user.password}/>
                 </fieldset>
                 <div className={"buttons"}>
-                    { error && <p>{error}</p> }
+                    { error && <p className={"error"}>{error}</p> }
                     { !error && <button type={"submit"}>LOGIN</button> }
                 </div>
             </form>

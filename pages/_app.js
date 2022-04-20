@@ -31,6 +31,12 @@ export default function App({ Component, pageProps }) {
                             Login
                         </Link>
                 }
+                {
+                    !session.user &&
+                    <Link href="/signup" passHref>
+                        Sign Up
+                    </Link>
+                }
             </Header>
 
             <main className="page">

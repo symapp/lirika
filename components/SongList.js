@@ -3,7 +3,7 @@ import Song from "@components/Song";
 import {useEffect, useState} from "react";
 import {getLikedSongsByUserId} from "@lib/api";
 
-export default function SongList({ songs, title, session }) {
+export default function SongList({ songs, session }) {
     const [likedSongs, setLikedSongs] = useState([])
 
     useEffect(() => {
@@ -20,7 +20,6 @@ export default function SongList({ songs, title, session }) {
 
     return songs && (
         <div className={styles.songList}>
-            <h2>{title}</h2>
             {
                 songs.map((song) => {
                     return (

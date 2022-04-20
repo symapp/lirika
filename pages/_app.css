@@ -30,9 +30,10 @@ a:hover {
     text-decoration: underline;
 }
 
-button {
+button, .error {
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
+    font-size: 1rem;
     padding: 0.5em 2rem;
     margin: 0.5em;
     background-color: #C1ABD6;
@@ -67,15 +68,36 @@ label {
     font-size: 1.5rem;
 }
 
+form {
+    background-color: #1e1e1e;
+    min-width: 300px;
+    width: 75%;
+    padding: 1rem 4rem;
+    border-radius: 10px;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+input {
+    width: 100%;
+    margin: 0.5rem;
+}
 
 .page {
     padding: 1em;
 }
 
-.page h1 {
+h1 {
     padding: 0.5em;
     text-align: center;
     font-size: 3rem;
+    font-weight: bold;
 }
 
 @media (min-width: 1200px) {

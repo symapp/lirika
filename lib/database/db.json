@@ -12,6 +12,22 @@
       "likedSongsIds": [
         1
       ]
+    },
+    {
+      "email": "admin@admin.cha",
+      "password": "$2a$10$N3kWJoD6Ergz/ADdwxAbIOdzdPytsu09SZNd5T2nnxmDJ5yc9gFKy",
+      "name": "asdf",
+      "roles": [],
+      "likedSongsIds": [],
+      "id": 2
+    },
+    {
+      "email": "asdf@adsf",
+      "password": "$2a$10$YYtT3BH31q81BPDLjNZjeODCQdgpQ1y5zn26hkxbFv0BUQWlm1OYS",
+      "name": "adf",
+      "roles": [],
+      "likedSongsIds": [],
+      "id": 3
     }
   ],
   "songs": [

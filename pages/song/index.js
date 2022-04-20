@@ -9,8 +9,12 @@ export default function SongsPage({ session }) {
 
     useEffect(() => {
         const getSongs = async () => {
-            const songs = await getAllSongs()
-            setSongs(songs)
+            try {
+                const songs = await getAllSongs()
+                setSongs(songs)
+            } catch (e) {
+                alert(e)
+            }
         }
 
         getSongs()
@@ -18,7 +22,8 @@ export default function SongsPage({ session }) {
 
     return (
         <div>
-            <SongList songs={songs} session={session} title="Songs"/>
+            <h1>Songs</h1>
+            <SongList songs={songs} session={session} />
         </div>
     )
 }
