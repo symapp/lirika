@@ -1,5 +1,5 @@
 import styles from "./SongList.module.css"
-import Song from "@components/Song";
+import SongCompact from "@components/SongCompact";
 import {useEffect, useState} from "react";
 import {getLikedSongsByUserId} from "@lib/api";
 
@@ -23,7 +23,7 @@ export default function SongList({ songs, session }) {
             {
                 songs.map((song) => {
                     return (
-                        <Song song={song} session={session} key={song.id} liked={likedSongs.includes(song.id)}/>
+                        <SongCompact song={song} session={session} key={song.id} liked={likedSongs.includes(song.id)}/>
                     )
                 })
             }

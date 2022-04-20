@@ -14,20 +14,12 @@
       ]
     },
     {
-      "email": "admin@admin.cha",
-      "password": "$2a$10$N3kWJoD6Ergz/ADdwxAbIOdzdPytsu09SZNd5T2nnxmDJ5yc9gFKy",
+      "email": "asdf@adsf",
+      "password": "$2a$10$4vkeDKXnhFh2VTtTTWHuw.tYK8cbpDGOkdSGylzF66/3BegIe9q5e",
       "name": "asdf",
       "roles": [],
       "likedSongsIds": [],
       "id": 2
-    },
-    {
-      "email": "asdf@adsf",
-      "password": "$2a$10$YYtT3BH31q81BPDLjNZjeODCQdgpQ1y5zn26hkxbFv0BUQWlm1OYS",
-      "name": "adf",
-      "roles": [],
-      "likedSongsIds": [],
-      "id": 3
     }
   ],
   "songs": [
@@ -37,68 +29,41 @@
       "albumId": 1,
       "likes": 90,
       "artistIds": [
-        1
+        1,
+        2
       ],
       "genres": [
-        "test"
+        "Test",
+        "Asdf",
+        "Adfasdfkjasödj öasljö"
       ],
       "length": 197,
-      "lyric": [
+      "lyrics": [
         {
-          "timestamp": 10,
-          "text": "test line one"
+          "groupName": "Verse",
+          "content": [
+            {
+              "timestamp": 1,
+              "text": "Test line one"
+            },
+            {
+              "timestamp": 3,
+              "text": "Test line two"
+            }
+          ]
         },
         {
-          "timestamp": 20,
-          "text": "test line two"
-        }
-      ],
-      "lastEdit": "0"
-    },
-    {
-      "id": 2,
-      "name": "songname2",
-      "albumId": 1,
-      "likes": 12,
-      "artistIds": [
-        1
-      ],
-      "genres": [
-        "test"
-      ],
-      "length": 120,
-      "lyric": [
-        {
-          "timestamp": 10,
-          "text": "test line one"
-        },
-        {
-          "timestamp": 20,
-          "text": "test line two"
-        }
-      ],
-      "lastEdit": "0"
-    },
-    {
-      "id": 3,
-      "name": "songname3",
-      "likes": 12,
-      "albumId": 1,
-      "artistIds": [
-        1
-      ],
-      "genres": [
-        "test"
-      ],
-      "length": 120,
-      "lyric": [
-        {
-          "timestamp": 10,
-          "text": "test line one"
-        },
-        {
-          "timestamp": 20,
-          "text": "test line two"
+          "groupName": "Chorus",
+          "content": [
+            {
+              "timestamp": 10,
+              "text": "Test line one"
+            },
+            {
+              "timestamp": 15,
+              "text": "Test line two"
+            }
+          ]
         }
       ],
       "lastEdit": "0"
@@ -116,10 +81,16 @@
       "last-edit": "0"
     }
   ],
-  "artist": [
+  "artists": [
     {
       "id": 1,
       "name": "artistname",
+      "image-path": "",
+      "last-edit": 0
+    },
+    {
+      "id": 2,
+      "name": "artistname2",
       "image-path": "",
       "last-edit": 0
     }

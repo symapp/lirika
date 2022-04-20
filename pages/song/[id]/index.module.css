@@ -1,0 +1,78 @@
+.song {
+
+}
+
+.song h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    padding: 0;
+    text-align: left;
+}
+
+.song h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+
+.imageContainer {
+    min-width: 200px;
+    min-height: 200px;
+    position: relative;
+    border: 2px solid #e0b7ff;
+    border-radius: 5px;
+}
+
+.song header {
+    display: flex;
+    align-items: flex-end;
+}
+
+.songInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.mainContent {
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: 1.5fr 1fr;
+    margin-top: 2rem;
+}
+
+.mainContent > div {
+    background: #1e1e1e;
+    padding: 1rem;
+    border-radius: 10px;
+    height: max-content;
+}
+
+.mainContent h3 {
+    color: #FFFFFFA8;
+    font-size: 1.5rem;
+}
+
+.lyrics h3 {
+    color: white;
+    font-size: 2rem;
+}
+
+.lyrics h4 {
+    color: #FFFFFFA0;
+    margin: 1rem 0 0.25rem;
+}
+
+.otherInfo {
+    color: #dfb6fe;
+}
+
+.otherInfo h3 {
+    margin-bottom: 0.25rem;
+}
+
+.genres {
+    margin: 0.5rem;
+    line-height: 2rem;
+}

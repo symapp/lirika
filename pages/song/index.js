@@ -1,7 +1,7 @@
 import styles from "./index.module.css"
 import {useEffect, useState} from "react";
 import {getAllSongs} from "@lib/api";
-import Song from "@components/Song";
+import SongCompact from "@components/SongCompact";
 import SongList from "@components/SongList";
 
 export default function SongsPage({ session }) {
