@@ -3,7 +3,7 @@
     {
       "id": 1,
       "email": "admin@admin.ch",
-      "password": "$2a$10$c.G69zxR23mYSN6T0mxvQOEPPI2ixNE8tYbpclTo8X8uev7VNwocy",
+      "password": "$2a$10$007N.zhMO8NSpDoU.2rNw.BydW27UIdpdkwIM26cmBW1.PFU8W446",
       "name": "Adam Admin",
       "roles": [
         "admin",
@@ -15,7 +15,7 @@
     },
     {
       "email": "asdf@adsf",
-      "password": "$2a$10$4vkeDKXnhFh2VTtTTWHuw.tYK8cbpDGOkdSGylzF66/3BegIe9q5e",
+      "password": "$2a$10$buung1awuZKTijXrIVGkZOpnuyCImHKmjlO4nX8lnGqreCuvVZ4ne",
       "name": "asdf",
       "roles": [],
       "likedSongIds": [],
@@ -40,26 +40,32 @@
       "length": 197,
       "lyrics": [
         {
+          "id": 1,
           "groupName": "Verse",
           "content": [
             {
+              "id": 1,
               "timestamp": 1,
               "text": "Test line one"
             },
             {
+              "id": 2,
               "timestamp": 3,
               "text": "Test line two"
             }
           ]
         },
         {
+          "id": 2,
           "groupName": "Chorus",
           "content": [
             {
+              "id": 1,
               "timestamp": 10,
               "text": "Test line one"
             },
             {
+              "id": 2,
               "timestamp": 15,
               "text": "Test line two"
             }
@@ -72,10 +78,20 @@
   "albums": [
     {
       "id": 1,
-      "name": "albumname",
+      "name": "Albumname",
       "year": 2005,
-      "artist-ids": [
+      "artistIds": [
         1
+      ],
+      "coverImage": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
+      "last-edit": "0"
+    },
+    {
+      "id": 2,
+      "name": "Albumname 2",
+      "year": 2050,
+      "artistIds": [
+        2
       ],
       "coverImage": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
       "last-edit": "0"
@@ -84,13 +100,13 @@
   "artists": [
     {
       "id": 1,
-      "name": "artistname",
+      "name": "Artist name",
       "image-path": "",
       "last-edit": 0
     },
     {
       "id": 2,
-      "name": "artistname2",
+      "name": "Artistname2",
       "image-path": "",
       "last-edit": 0
     }

@@ -1,6 +1,6 @@
 import styles from "./SongCompact.module.css"
 import {useEffect, useState} from "react";
-import {getAlbumCoverFileName, getArtistsById, getLikedSongIdsByUserId, setLikedTo} from "@lib/api";
+import {getAlbumCoverFileName, getSongArtistsById, getLikedSongIdsByUserId, setLikedTo} from "@lib/api";
 import Image from "next/image";
 import likedImg from "../public/liked.png"
 import unlikedImg from "../public/unliked.png"
@@ -25,7 +25,7 @@ export default function SongCompact({song, likedStart, session}) {
         getAlbumCoverImagePath()
 
         const getArtists = async () => {
-            const artists = await getArtistsById(song.artistIds)
+            const artists = await getSongArtistsById(song.artistIds)
             setArtists(artists)
         }
 
@@ -36,10 +36,12 @@ export default function SongCompact({song, likedStart, session}) {
             setLiked(likedSongs.includes(song.id))
         }
 
-        getLiked()
-    }, [session.user.id, song])
+        if (session.user) getLiked()
+    }, [session.user, song])
 
     useEffect(() => {
+        if (!session.user) return
+
         setLikedTo(session.user.id, song.id, liked, session)
     }, [liked, session, song.id])
 

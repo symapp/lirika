@@ -75,19 +75,17 @@ export default function SongPage() {
                     <h3>Lyrics</h3>
                     {
                         song.lyrics.map((group) => {
-                            return <>
+                            return <div key={group.id}>
                                 <h4>{group.groupName}</h4>
-                                <p>
-                                    {
-                                        group.content.map((line) => {
-                                            return <>
-                                                {line.text}
-                                                <br/>
-                                            </>
-                                        })
-                                    }
-                                </p>
-                            </>
+                                {
+                                    group.content.map((line) => {
+                                        return <p key={line.id}>
+                                            {line.text}
+                                            <br/>
+                                        </p>
+                                    })
+                                }
+                            </div>
                         })
                     }
                 </div>

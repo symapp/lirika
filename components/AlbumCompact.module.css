@@ -1,0 +1,27 @@
+.album {
+    background-color: #343434;
+    padding: 0.5rem;
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+}
+
+.imageContainer {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border: 1px solid #e0b7ff;
+    border-radius: 5px;
+}
+
+.albumInfo {
+    flex: 1 1 auto;
+    display: flex;
+    margin: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.albumInfo h3 {
+    font-size: 2rem;
+}
