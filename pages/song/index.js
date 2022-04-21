@@ -5,7 +5,7 @@ import SongCompact from "@components/SongCompact";
 import SongList from "@components/SongList";
 
 export default function SongsPage({ session }) {
-    const [songs, setSongs] = useState(null)
+    const [songs, setSongs] = useState([])
 
     useEffect(() => {
         const getSongs = async () => {

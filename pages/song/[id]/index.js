@@ -8,7 +8,7 @@ function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)
 }
 
-export default function SongPage({session}) {
+export default function SongPage() {
     const router = useRouter()
     const {id} = router.query
     const [song, setSong] = useState(null)
@@ -29,7 +29,7 @@ export default function SongPage({session}) {
         if (!id) return
         const loadSong = async () => {
             try {
-                const song = await getSongWithAllInfoById(id)
+                const song = await getSongById(id)
                 setSong(song)
             } catch (e) {
                 if (e.status === 404) router.push("/404")

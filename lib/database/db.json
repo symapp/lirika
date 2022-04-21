@@ -3,13 +3,13 @@
     {
       "id": 1,
       "email": "admin@admin.ch",
-      "password": "$2a$10$YkFbz7nkfUtM64tKLMfPme2IOwuBEVCWXcGv75NP6BEdeV94eQ/TG",
+      "password": "$2a$10$c.G69zxR23mYSN6T0mxvQOEPPI2ixNE8tYbpclTo8X8uev7VNwocy",
       "name": "Adam Admin",
       "roles": [
         "admin",
         "creator"
       ],
-      "likedSongsIds": [
+      "likedSongIds": [
         1
       ]
     },
@@ -18,7 +18,7 @@
       "password": "$2a$10$4vkeDKXnhFh2VTtTTWHuw.tYK8cbpDGOkdSGylzF66/3BegIe9q5e",
       "name": "asdf",
       "roles": [],
-      "likedSongsIds": [],
+      "likedSongIds": [],
       "id": 2
     }
   ],

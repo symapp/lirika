@@ -1,6 +1,6 @@
 import styles from "./SongCompact.module.css"
 import {useEffect, useState} from "react";
-import {getAlbumCoverFileName, getLikedSongsByUserId} from "@lib/api";
+import {getAlbumCoverFileName, getArtistsById, getLikedSongIdsByUserId, setLikedTo} from "@lib/api";
 import Image from "next/image";
 import likedImg from "../public/liked.png"
 import unlikedImg from "../public/unliked.png"
@@ -11,9 +11,10 @@ function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)
 }
 
-export default function SongCompact({song, liked, session}) {
-    const router = useRouter()
+export default function SongCompact({song, likedStart, session}) {
     const [imagePath, setImagePath] = useState()
+    const [artists, setArtists] = useState()
+    const [liked, setLiked] = useState()
 
     useEffect(() => {
         const getAlbumCoverImagePath = async () => {
@@ -22,7 +23,29 @@ export default function SongCompact({song, liked, session}) {
         }
 
         getAlbumCoverImagePath()
-    }, [song.albumId])
+
+        const getArtists = async () => {
+            const artists = await getArtistsById(song.artistIds)
+            setArtists(artists)
+        }
+
+        getArtists()
+
+        const getLiked = async () => {
+            const likedSongs = await getLikedSongIdsByUserId(session.user.id)
+            setLiked(likedSongs.includes(song.id))
+        }
+
+        getLiked()
+    }, [session.user.id, song])
+
+    useEffect(() => {
+        setLikedTo(session.user.id, song.id, liked, session)
+    }, [liked, session, song.id])
+
+    const toggleLike = () => {
+        setLiked(!liked)
+    }
 
     return (
         <div className={styles.song}>
@@ -40,15 +63,23 @@ export default function SongCompact({song, liked, session}) {
             </Link>
 
             <div className={styles.songInfo}>
-                <Link href={`/song/${song.id}`} passHref>
-                    <h3>{song.name}</h3>
-                </Link>
+                <div className={styles.mainSongInfo}>
+                    <Link href={`/song/${song.id}`} passHref>
+                        <h3>{song.name}</h3>
+                    </Link>
+                    <h5>
+                        {
+                            artists &&
+                            artists.map((artist) => artist.name).join(", ")
+                        }
+                    </h5>
+                </div>
                 <p>{getFormattedTime(song.length)}</p>
                 <h4>{song.likes}</h4>
             </div>
 
             {session.user &&
-                <div className={styles.likeImageContainer}>
+                <div className={styles.likeImageContainer} onClick={toggleLike}>
                     {
                         liked
                             ?

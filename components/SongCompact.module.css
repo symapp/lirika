@@ -15,7 +15,7 @@
     width: 50px;
     height: 50px;
     position: relative;
-    border: 1px solid #C1ABD6;
+    border: 1px solid #e0b7ff;
     border-radius: 5px;
 }
 
@@ -38,7 +38,7 @@
     margin: auto 0;
 }
 
-.songInfo h3 {
+.mainSongInfo {
     width: 400px;
     margin: auto 0;
 }
@@ -56,4 +56,13 @@
 
 .song:hover .unliked{
     display: block !important;
+}
+
+.song h3:hover, .song img:hover {
+    cursor: pointer;
+}
+
+.song h5 {
+    font-size: 0.75rem;
+    color: #E0B7FFA9;
 }

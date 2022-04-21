@@ -20,6 +20,9 @@ export default function App({ Component, pageProps }) {
                 <Link href="/song" passHref>
                     Songs
                 </Link>
+                <Link href="/album" passHref>
+                    Albums
+                </Link>
                 {
                     session.user
                     ?
