@@ -3,8 +3,8 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import {getAlbumCoverFileName, getSongById, getSongWithAllInfoById} from "@lib/api";
 import Image from "next/image";
-import AlbumList from "@components/AlbumList";
-import AlbumCompact from "@components/AlbumCompact";
+import AlbumList from "@components/album/AlbumList";
+import AlbumCompact from "@components/album/AlbumCompact";
 
 function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)

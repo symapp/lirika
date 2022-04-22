@@ -187,13 +187,31 @@
     {
       "id": 1,
       "name": "Artist name",
-      "image-path": "",
+      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
       "last-edit": 0
     },
     {
       "id": 2,
       "name": "Artistname2",
-      "image-path": "",
+      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
+      "last-edit": 0
+    },
+    {
+      "id": 3,
+      "name": "Artist name",
+      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
+      "last-edit": 0
+    },
+    {
+      "id": 4,
+      "name": "Artistname2 éas asdf sa d",
+      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
+      "last-edit": 0
+    },
+    {
+      "id": 5,
+      "name": "Artist name",
+      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
       "last-edit": 0
     }
   ]

@@ -1,5 +1,5 @@
 import styles from "./SongList.module.css"
-import SongCompact from "@components/SongCompact";
+import SongCompact from "@components/song/SongCompact";
 import {useEffect, useState} from "react";
 import {getLikedSongIdsByUserId, setLikedSongsTo} from "@lib/api";
 

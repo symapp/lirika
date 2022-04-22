@@ -1,7 +1,7 @@
 import styles from "./index.module.css"
 import {useEffect, useState} from "react";
 import {getAllAlbums} from "@lib/api";
-import AlbumList from "@components/AlbumList";
+import AlbumList from "@components/album/AlbumList";
 
 export default function AlbumsPage({ session }) {
     const [albums, setAlbums] = useState([])

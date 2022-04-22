@@ -1,0 +1,25 @@
+.artist {
+    background-color: #343434;
+    padding: 1rem;
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.imageContainer {
+    min-width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    position: relative;
+    border: 1px solid #e0b7ff;
+}
+
+.artist h2 {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}

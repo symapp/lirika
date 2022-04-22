@@ -1,8 +1,8 @@
 import styles from "./index.module.css"
 import {useEffect, useState} from "react";
 import {getAllSongs} from "@lib/api";
-import SongCompact from "@components/SongCompact";
-import SongList from "@components/SongList";
+import SongCompact from "@components/song/SongCompact";
+import SongList from "@components/song/SongList";
 
 export default function SongsPage({ session }) {
     const [songs, setSongs] = useState([])

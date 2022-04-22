@@ -4,10 +4,9 @@ import {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function AlbumCompact({album, session}) {
+export default function AlbumCompact({album}) {
     const [artists, setArtists] = useState()
     const [songs, setSongs] = useState([])
-    const [albumLength, setAlbumLength] = useState(0)
 
     useEffect(() => {
         const getArtists = async () => {
@@ -25,17 +24,6 @@ export default function AlbumCompact({album, session}) {
         getSongs()
 
     }, [album.artistIds, album.id])
-
-    useEffect(() => {
-        if (!songs) return
-
-        let length = 0
-        songs.forEach((song) => {
-            length += song.length
-        })
-        setAlbumLength(length)
-    }, [album, songs])
-
 
     return (
         <div className={styles.album}>
