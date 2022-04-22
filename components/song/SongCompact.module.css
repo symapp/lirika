@@ -6,8 +6,8 @@
     display: flex;
 }
 
-.song:nth-child(1) {
-    margin: 0;
+.song:hover {
+    background-color: #FFFFFF33;
 }
 
 .imageContainer {
@@ -57,11 +57,16 @@
     display: block !important;
 }
 
-.song h3:hover, .song img:hover {
+.song h3:hover, .song a:hover {
     cursor: pointer;
+    color: white;
 }
 
-.song h5 {
+.imageContainer:hover {
+    border-color: white;
+}
+
+.song a, .song h5 {
     font-size: 0.75rem;
     color: #E0B7FFA9;
 }

@@ -1,5 +1,5 @@
 import styles from "./AlbumCompact.module.css"
-import {getArtistsByArtistIds, getAlbumCoverFileName, getSongsByAlbumId} from "@lib/api";
+import {getArtistsByArtistIds, getSongsByAlbumId} from "@lib/api";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -46,7 +46,11 @@ export default function AlbumCompact({album}) {
                     <h5>
                         {
                             artists &&
-                            artists.map((artist) => artist.name).join(", ")
+                            artists.map((artist) => {
+                                return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                    {artist.name}
+                                </Link>
+                            }).reduce((prev, curr) => [prev, ', ', curr])
                         } - {
                         album.year
                     }

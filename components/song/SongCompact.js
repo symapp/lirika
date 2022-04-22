@@ -11,13 +11,16 @@ function getFormattedTime(time) {
 }
 
 export default function SongCompact({song, session, album, likedSongs, setLikedSongs}) {
-    const [artists, setArtists] = useState()
-    const [liked, setLiked] = useState(false)
+    const [artists, setArtists] = useState([])
 
     useEffect(() => {
         const getArtists = async () => {
-            const artists = await getArtistsByArtistIds(song.artistIds)
-            setArtists(artists)
+            try {
+                const artists = await getArtistsByArtistIds(song.artistIds)
+                setArtists(artists)
+            } catch (e) {
+                alert(e)
+            }
         }
 
         getArtists()
@@ -39,7 +42,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
 
     return (
         <div className={styles.song}>
-            <Link href={`/song/${song.id}`} passHref>
+            <Link href={`/album/${album ? album.id : song.album.id}`} passHref>
                 <div className={styles.imageContainer}>
                     <Image
                         src={`/albumcovers/${album ? album.coverImage : song.album.coverImage}`}
@@ -57,8 +60,14 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
                     </Link>
                     <h5>
                         {
-                            artists &&
-                            artists.map((artist) => artist.name).join(", ")
+                            artists.length > 0 &&
+                            artists.map((artist) => {
+                                return (
+                                    <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                        {artist.name}
+                                    </Link>
+                                )
+                            }).reduce((prev, curr) => [prev, ', ', curr])
                         }
                     </h5>
                 </div>

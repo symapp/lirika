@@ -11,7 +11,7 @@ export default function SongList({songs, session, album, numbers}) {
 
         const getLikedSongs = async () => {
             try {
-                const likedSongs = await getLikedSongIdsByUserId(session.user.id)
+                const likedSongs = await getLikedSongIdsByUserId(session, session.user.id)
                 setLikedSongs(likedSongs)
             } catch (e) {
                 alert(e)

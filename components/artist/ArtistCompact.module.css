@@ -24,3 +24,7 @@
     width: 100%;
     text-align: center;
 }
+
+.artist:hover {
+    background-color: #FFFFFF33;
+}

@@ -6,6 +6,10 @@
     display: flex;
 }
 
+.album:hover {
+    background-color: #FFFFFF33;
+}
+
 .imageContainer {
     min-width: 100px;
     height: 100px;
@@ -27,6 +31,15 @@
     color: #e0b7ff;
 }
 
-.albumInfo h5 {
+.albumInfo h5, .albumInfo a {
     color: #e0b7ffa0;
+}
+
+.album h3:hover, .album a:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.imageContainer:hover {
+    border-color: white;
 }

@@ -8,7 +8,7 @@
 }
 
 .header > a, .header > div {
-    color: #e0b7ff !important;
+    color: #e0b7ff;
     font-weight: bold;
     font-size: 1.5rem;
     padding: 1rem;
@@ -18,4 +18,5 @@
 .header > a:hover, .header > div:hover {
     text-decoration: none;
     background-color: #EFE9EF0C;
+    color: white;
 }
