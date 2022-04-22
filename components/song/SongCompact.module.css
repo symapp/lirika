@@ -64,6 +64,7 @@
 
 .imageContainer:hover {
     border-color: white;
+    cursor: pointer;
 }
 
 .song a, .song h5 {

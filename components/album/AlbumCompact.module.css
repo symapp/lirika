@@ -28,7 +28,7 @@
 
 .albumInfo h3 {
     font-size: 2rem;
-    color: #e0b7ff;
+    color: #e0b7ff !important;
 }
 
 .albumInfo h5, .albumInfo a {
@@ -37,9 +37,10 @@
 
 .album h3:hover, .album a:hover {
     cursor: pointer;
-    color: white;
+    color: white !important;
 }
 
 .imageContainer:hover {
     border-color: white;
+    cursor: pointer;
 }

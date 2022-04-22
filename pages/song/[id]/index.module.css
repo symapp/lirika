@@ -9,7 +9,7 @@
     text-align: left;
 }
 
-.song h2 {
+.song h2, .song a {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #C1ABD6A0;
@@ -77,4 +77,20 @@
 .genres {
     margin: 0.5rem;
     line-height: 2rem;
+}
+
+.song hr {
+    border: 1px solid #e0b7ff;
+    width: 100%;
+    margin: 2rem auto 0;
+}
+
+.song a:hover {
+    cursor: pointer;
+    color: white !important;
+}
+
+.imageContainer:hover {
+    border-color: white;
+    cursor: pointer;
 }

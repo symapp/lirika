@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import Image from "next/image";
 import {getAlbumById} from "@lib/api";
 import SongList from "@components/song/SongList";
+import Link from "next/link";
 
 function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)
@@ -54,9 +55,12 @@ export default function AlbumPage({session}) {
                     <h1>{album.name}</h1>
                     <h2>
                         {
+                            album.artists.length > 0 &&
                             album.artists.map((artist) => {
-                                return artist.name
-                            }).join(", ")
+                                return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                    {artist.name}
+                                </Link>
+                            }).reduce((prev, curr) => [prev, ', ', curr])
                         } - {
                         album.year
                     } - {
@@ -65,6 +69,7 @@ export default function AlbumPage({session}) {
                     </h2>
                 </div>
             </header>
+            <hr/>
             <div className={styles.songs}>
                 <SongList songs={album.songs} session={session} album={album} numbers={true}/>
             </div>

@@ -9,7 +9,7 @@
     text-align: left;
 }
 
-.album h2 {
+.album h2, .album a {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #C1ABD6A0;
@@ -38,4 +38,20 @@
 
 .songs {
     margin-top: 2rem;
+}
+
+.album hr {
+    border: 1px solid #e0b7ff;
+    width: 100%;
+    margin: 2rem auto 0;
+}
+
+.album a:hover {
+    cursor: pointer;
+    color: white !important;
+}
+
+.imageContainer:hover {
+    border-color: white;
+    cursor: pointer;
 }

@@ -1,10 +1,10 @@
 import styles from "./index.module.css"
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import {getAlbumCoverFileName, getSongById, getSongWithAllInfoById} from "@lib/api";
+import {getSongById} from "@lib/api";
 import Image from "next/image";
-import AlbumList from "@components/album/AlbumList";
 import AlbumCompact from "@components/album/AlbumCompact";
+import Link from "next/link";
 
 function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)
@@ -33,21 +33,25 @@ export default function SongPage() {
     return song && (
         <div className={styles.song}>
             <header>
-                <div className={styles.imageContainer}>
-                    <Image
-                        src={`/../public/albumcovers/${song.album.coverImage}`}
-                        alt="cover"
-                        layout="fill"
-                        objectFit="contain"
-                    />
-                </div>
+                <Link href={`/album/${song.album.id}`}>
+                    <div className={styles.imageContainer}>
+                        <Image
+                            src={`/albumcovers/${song.album.coverImage}`}
+                            alt="cover"
+                            layout="fill"
+                            objectFit="contain"
+                        />
+                    </div>
+                </Link>
                 <div className={styles.songInfo}>
                     <h1>{song.name}</h1>
                     <h2>
                         {
                             song.artists.map((artist) => {
-                                return artist.name
-                            }).join(", ")
+                                return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                    {artist.name}
+                                </Link>
+                            }).reduce((prev, curr) => [prev, ', ', curr])
                         } - {
                         song.album.year
                     } - {
@@ -56,7 +60,7 @@ export default function SongPage() {
                     </h2>
                 </div>
             </header>
-
+            <hr/>
             <div className={styles.mainContent}>
                 <div className={styles.lyrics}>
                     <h3>Lyrics</h3>

@@ -5,8 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function AlbumCompact({album}) {
-    const [artists, setArtists] = useState()
-    const [songs, setSongs] = useState([])
+    const [artists, setArtists] = useState([])
 
     useEffect(() => {
         const getArtists = async () => {
@@ -15,15 +14,7 @@ export default function AlbumCompact({album}) {
         }
 
         getArtists()
-
-        const getSongs = async () => {
-            const songs = await getSongsByAlbumId(album.id)
-            setSongs(songs)
-        }
-
-        getSongs()
-
-    }, [album.artistIds, album.id])
+    }, [album])
 
     return (
         <div className={styles.album}>
@@ -45,7 +36,7 @@ export default function AlbumCompact({album}) {
                     </Link>
                     <h5>
                         {
-                            artists &&
+                            artists.length > 0 &&
                             artists.map((artist) => {
                                 return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
                                     {artist.name}
