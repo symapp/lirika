@@ -25,7 +25,7 @@ export default function ArtistsPage({ session }) {
             <h1>Artists</h1>
             <ArtistList artists={artists} />
             <div className="buttons">
-                {session.user && <Link href="/artist/add">Add</Link>}
+                {session.user && <Link href="/artist/add" passHref>Add</Link>}
             </div>
         </div>
     )

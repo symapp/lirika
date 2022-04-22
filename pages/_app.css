@@ -29,7 +29,7 @@ a:hover {
     cursor: pointer;
 }
 
-button, .error, .buttons a {
+button, .error, .buttons a, .buttonsLeft a {
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     font-size: 1rem;
@@ -41,7 +41,7 @@ button, .error, .buttons a {
     border-radius: 5px;
 }
 
-button:hover, .buttons a {
+button:hover, .buttons a:hover, .buttonsLeft a:hover {
     cursor: pointer;
 }
 
@@ -49,6 +49,11 @@ button:hover, .buttons a {
     display: flex;
     justify-content: center;
     margin: 1rem;
+}
+
+.buttonsLeft {
+    display: flex;
+    justify-content: flex-start;
 }
 
 input {

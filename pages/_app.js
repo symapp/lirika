@@ -33,9 +33,6 @@ export default function App({Component, pageProps}) {
                 <Link href="/artist" passHref>
                     Artists
                 </Link>
-                <Link href="/artist/add" passHref>
-                    CreateArtists
-                </Link>
                 {
                     session.user
                         ?

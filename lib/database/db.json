@@ -145,32 +145,17 @@
   ],
   "artists": [
     {
-      "name": "asdfasdf",
-      "lastEdit": "2022-04-22T11:45:49.333Z",
-      "filePath": "/f7f73e9c-5587-4523-8eba-a0654a85c7e1.png",
+      "name": "adsfasdfasdf",
+      "lastEdit": "2022-04-22T13:54:22.424Z",
+      "filePath": "/artistimages/bccf5a52-5cc7-4f1a-a836-3bf66f6ad22e.jpeg",
       "userId": 1,
       "id": 1
     },
     {
-      "name": "test2",
-      "lastEdit": "2022-04-22T11:58:31.429Z",
-      "filePath": "/artistimages/9e50bb4a-7680-419e-b852-5265ed7b2048.png",
+      "name": "asdf",
+      "lastEdit": "2022-04-22T13:54:58.843Z",
       "userId": 1,
       "id": 2
-    },
-    {
-      "name": "asdfsdfasdfa",
-      "lastEdit": "2022-04-22T11:58:42.720Z",
-      "filePath": "/artistimages/5445eb2f-b7dd-4d99-a6c3-07e4fb43c345.png",
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "name": "adf",
-      "lastEdit": "2022-04-22T12:05:20.601Z",
-      "filePath": "/artistimages/7e2f6ebc-3dca-49ba-8e67-6ee3fb3554d3.png",
-      "userId": 1,
-      "id": 4
     }
   ]
 }

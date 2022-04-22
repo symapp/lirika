@@ -8,36 +8,12 @@ const defaultArtist = {
     name: ""
 }
 
-const validateArtist = async (artist) => {
-    const errors = {
-        name: ""
-    }
-    let isValid = true
-
-    try {
-        const artists = await getAllArtists()
-        if (artists.map(artist => artist.name).includes(artist.name)) {
-            errors.name = "There's already an artist with that name"
-            isValid = false
-        }
-    } catch (e) {
-        errors.name = "An error occurred. Couldn't verify if input is unique"
-        isValid = false
-    }
-
-    if (artist.name.trim().length === 0) {
-        errors.name = "Name can't be empty"
-        isValid = false
-    }
-
-    return {errors, isValid}
-}
-
 export default function ArtistForm({session, artistToEdit}) {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState(defaultArtist)
     const [artist, setArtist] = useState(defaultArtist)
+    const [editing, setEditing] = useState(false)
 
     const [base64Image, setBase64Image] = useState("")
 
@@ -46,8 +22,39 @@ export default function ArtistForm({session, artistToEdit}) {
     useEffect(() => {
         if (artistToEdit) {
             setArtist(artistToEdit)
+            setEditing(true)
         }
     }, [artistToEdit])
+
+    const validateArtist = async (artist) => {
+        const errors = {
+            name: ""
+        }
+        let isValid = true
+
+        try {
+            const artists = await getAllArtists()
+            if (artists.map(artist => artist.name).includes(artist.name)) {
+                errors.name = "There's already an artist with that name"
+                isValid = false
+            }
+            if (artistToEdit && artist.name === artistToEdit.name) {
+                errors.name = ""
+                isValid = true
+            }
+        } catch (e) {
+            errors.name = "An error occurred. Couldn't verify if input is unique"
+            isValid = false
+        }
+
+
+        if (artist.name.trim().length === 0) {
+            errors.name = "Name can't be empty"
+            isValid = false
+        }
+
+        return {errors, isValid}
+    }
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -65,32 +72,36 @@ export default function ArtistForm({session, artistToEdit}) {
 
         const result = await validateArtist(artist)
 
-        if (!result.isValid || !base64Image) {
+        if (!result.isValid ) {
             setErrors(result.errors)
-            if (!base64Image) {
-                setErrors({
-                    ...result.errors,
-                    image: "You need to input an image"
-                })
-            }
-
             setIsLoading(false)
             return
         }
+        if (!base64Image && !artist.filePath) {
+            setErrors({
+                ...result.errors,
+                image: "You need to input an image"
+            })
+            setIsLoading(false)
+        }
+
 
 
         artist.lastEdit = new Date().toISOString()
+
+        if (base64Image) {
+            const filePath = await uploadArtistImage(base64Image, "artistimages")
+
+            artist.filePath = filePath
+        }
+
 
         if (artist.id) {
             await updateArtist(session.accessToken, artist)
             await router.push(`/artist/${artist.id}`)
         } else {
 
-            const filePath = await uploadArtistImage(base64Image, "artistimages")
-
-            artist.filePath = filePath
             artist.userId = session.user.id
-            console.log(artist)
             const newArtist = await createArtist(session.accessToken, artist)
             await router.push(`/artist/${newArtist.id}`)
         }
@@ -112,6 +123,7 @@ export default function ArtistForm({session, artistToEdit}) {
 
         const base64 = await toBase64(file)
         setBase64Image(base64)
+        setEditing(false)
     }
 
     return (
@@ -130,17 +142,25 @@ export default function ArtistForm({session, artistToEdit}) {
                     onChange={onFileInputChange}
                 />
                 {
-                    base64Image &&
+                    (base64Image || editing) &&
                     <div className={styles.previewContainer}>
-
                         <div className={styles.imageContainer}>
-                            <Image
-                                src={base64Image}
-                                alt="image preview"
-                                layout="fill"
-                                objectFit="cover"
-                            />
-
+                            {
+                                editing ?
+                                    <Image
+                                        src={artistToEdit.filePath}
+                                        alt="image preview"
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                                    :
+                                    <Image
+                                        src={base64Image}
+                                        alt="image preview"
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                            }
                         </div>
                         <p>Image Preview</p>
                     </div>
