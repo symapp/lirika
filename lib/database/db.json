@@ -1,30 +1,116 @@
 {
   "users": [
     {
-      "id": 1,
       "email": "admin@admin.ch",
-      "password": "$2a$10$007N.zhMO8NSpDoU.2rNw.BydW27UIdpdkwIM26cmBW1.PFU8W446",
-      "name": "Adam Admin",
-      "roles": [
-        "admin",
-        "creator"
-      ],
+      "password": "$2a$10$dsp.yE8mJkmpwtl6HOOc3OJN.vDsnKGSFUVb3ezulFbrQ/QsULl6C",
+      "name": "adam admin",
       "likedSongIds": [
+        1
+      ],
+      "roles": [],
+      "id": 1
+    },
+    {
+      "email": "asdf@adsf",
+      "password": "$2a$10$0DWd8NOsY1ybwnMCWh4hZeI3d/et2ZnFjDXEPsRZjITTcEQXB528q",
+      "name": "asdf",
+      "likedSongIds": [],
+      "roles": [],
+      "id": 2
+    },
+    {
+      "email": "admin@admin.chs",
+      "password": "$2a$10$ySOcvsU.L0lwO72otlu84u6m.7ErzqpLk6hpJh7Tr3ClafcLnfj5C",
+      "name": "asdf",
+      "likedSongIds": [],
+      "roles": [],
+      "id": 3
+    },
+    {
+      "email": "asdfsfklajs@asdfasdfadsfa",
+      "password": "$2a$10$ZiApLqMWLrYR9VZp9I/BJOGsLNppoYNlfofInkRNZDxAEXlDeTYqS",
+      "name": "asdfasdfa",
+      "likedSongIds": [],
+      "roles": [],
+      "id": 4,
+      "likedSongs": [
         1
       ]
     },
     {
-      "email": "asdf@adsf",
-      "password": "$2a$10$buung1awuZKTijXrIVGkZOpnuyCImHKmjlO4nX8lnGqreCuvVZ4ne",
-      "name": "asdf",
-      "roles": [],
+      "email": "cu@cu",
+      "password": "$2a$10$RjaljzqCTPlev99ZFoOrX.5cg2R2JuWdNdqIDiF8MXYowb0DQ9qJa",
+      "name": "cucu",
       "likedSongIds": [],
-      "id": 2
+      "roles": [],
+      "id": 5,
+      "likedSongs": []
+    },
+    {
+      "email": "ads@aids",
+      "password": "$2a$10$S.nkA9ninQi9FCaXsTJUdOw.4kL/Y7UJUWdb07.LAD4CxGvDX/aiK",
+      "name": "asdölfkj",
+      "likedSongIds": [],
+      "roles": [],
+      "id": 6
     }
   ],
   "songs": [
     {
       "id": 1,
+      "indexInAlbum": 1,
+      "name": "songname",
+      "albumId": 1,
+      "likes": 90,
+      "artistIds": [
+        1,
+        2
+      ],
+      "genres": [
+        "Test",
+        "Asdf",
+        "Adfasdfkjasödj öasljö"
+      ],
+      "length": 197,
+      "lyrics": [
+        {
+          "id": 1,
+          "groupName": "Verse",
+          "content": [
+            {
+              "id": 1,
+              "timestamp": 1,
+              "text": "Test line one"
+            },
+            {
+              "id": 2,
+              "timestamp": 3,
+              "text": "Test line two"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "groupName": "Chorus",
+          "content": [
+            {
+              "id": 1,
+              "timestamp": 10,
+              "text": "Test line one"
+            },
+            {
+              "id": 2,
+              "timestamp": 15,
+              "text": "Test line two"
+            }
+          ]
+        }
+      ],
+      "lastEdit": "0"
+    },
+    {
+      "id": 2,
+      "indexInAlbum": 2,
       "name": "songname",
       "albumId": 1,
       "likes": 90,
@@ -78,7 +164,7 @@
   "albums": [
     {
       "id": 1,
-      "name": "Albumname",
+      "name": "aasdfasfdasdfa asa asdf ",
       "year": 2005,
       "artistIds": [
         1

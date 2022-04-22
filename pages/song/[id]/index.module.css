@@ -12,6 +12,7 @@
 .song h2 {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
+    color: #C1ABD6A0;
 }
 
 .imageContainer {
@@ -32,6 +33,7 @@
     flex-direction: column;
     margin-left: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 

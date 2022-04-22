@@ -3,6 +3,8 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import {getAlbumCoverFileName, getSongById, getSongWithAllInfoById} from "@lib/api";
 import Image from "next/image";
+import AlbumList from "@components/AlbumList";
+import AlbumCompact from "@components/AlbumCompact";
 
 function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)
@@ -12,18 +14,6 @@ export default function SongPage() {
     const router = useRouter()
     const {id} = router.query
     const [song, setSong] = useState(null)
-    const [imagePath, setImagePath] = useState()
-
-    useEffect(() => {
-        if (!song) return
-
-        const getAlbumCoverImagePath = async () => {
-            const AlbumCoverImagePath = await getAlbumCoverFileName(song.albumId)
-            setImagePath(AlbumCoverImagePath)
-        }
-
-        getAlbumCoverImagePath()
-    }, [song])
 
     useEffect(() => {
         if (!id) return
@@ -44,15 +34,12 @@ export default function SongPage() {
         <div className={styles.song}>
             <header>
                 <div className={styles.imageContainer}>
-                    {
-                        imagePath &&
-                        <Image
-                            src={`/../public/albumcovers/${imagePath}`}
-                            alt="cover"
-                            layout="fill"
-                            objectFit="contain"
-                        />
-                    }
+                    <Image
+                        src={`/../public/albumcovers/${song.album.coverImage}`}
+                        alt="cover"
+                        layout="fill"
+                        objectFit="contain"
+                    />
                 </div>
                 <div className={styles.songInfo}>
                     <h1>{song.name}</h1>
@@ -99,7 +86,7 @@ export default function SongPage() {
                         })}
                     </div>
                     <h3>Album</h3>
-                    TODO
+                    <AlbumCompact album={song.album}/>
                 </div>
             </div>
         </div>

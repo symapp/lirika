@@ -1,0 +1,41 @@
+.album {
+
+}
+
+.album h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    padding: 0;
+    text-align: left;
+}
+
+.album h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    color: #C1ABD6A0;
+}
+
+.imageContainer {
+    min-width: 200px;
+    min-height: 200px;
+    position: relative;
+    border: 2px solid #e0b7ff;
+    border-radius: 5px;
+}
+
+.album header {
+    display: flex;
+    align-items: flex-end;
+}
+
+.albumInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.songs {
+    margin-top: 2rem;
+}

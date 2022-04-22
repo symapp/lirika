@@ -7,7 +7,7 @@
 }
 
 .imageContainer {
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     position: relative;
     border: 1px solid #e0b7ff;
@@ -24,4 +24,8 @@
 
 .albumInfo h3 {
     font-size: 2rem;
+    color: #e0b7ff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
 }

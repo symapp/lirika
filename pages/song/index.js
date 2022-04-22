@@ -23,7 +23,7 @@ export default function SongsPage({ session }) {
     return (
         <div>
             <h1>Songs</h1>
-            <SongList songs={songs} session={session} />
+            <SongList songs={songs} session={session} smaller={true} />
         </div>
     )
 }

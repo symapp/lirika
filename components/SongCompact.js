@@ -1,66 +1,49 @@
 import styles from "./SongCompact.module.css"
 import {useEffect, useState} from "react";
-import {getAlbumCoverFileName, getSongArtistsById, getLikedSongIdsByUserId, setLikedTo} from "@lib/api";
+import {getSongArtistsById} from "@lib/api";
 import Image from "next/image";
-import likedImg from "../public/liked.png"
-import unlikedImg from "../public/unliked.png"
+import likedImg from "/public/liked.png"
+import unlikedImg from "/public/unliked.png"
 import Link from "next/link";
-import {useRouter} from "next/router";
 
 function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)
 }
 
-export default function SongCompact({song, likedStart, session}) {
-    const [imagePath, setImagePath] = useState()
+export default function SongCompact({song, session, album, likedSongs, setLikedSongs}) {
     const [artists, setArtists] = useState()
-    const [liked, setLiked] = useState()
 
     useEffect(() => {
-        const getAlbumCoverImagePath = async () => {
-            const AlbumCoverImagePath = await getAlbumCoverFileName(song.albumId)
-            setImagePath(AlbumCoverImagePath)
-        }
-
-        getAlbumCoverImagePath()
-
         const getArtists = async () => {
             const artists = await getSongArtistsById(song.artistIds)
             setArtists(artists)
         }
 
         getArtists()
-
-        const getLiked = async () => {
-            const likedSongs = await getLikedSongIdsByUserId(session.user.id)
-            setLiked(likedSongs.includes(song.id))
-        }
-
-        if (session.user) getLiked()
     }, [session.user, song])
 
-    useEffect(() => {
-        if (!session.user) return
+    const toggleLike = async () => {
+        let newLikedSongs = [...likedSongs]
 
-        setLikedTo(session.user.id, song.id, liked, session)
-    }, [liked, session, song.id])
-
-    const toggleLike = () => {
-        setLiked(!liked)
+        if (newLikedSongs.includes(song.id)) {
+            newLikedSongs = likedSongs.filter((id) => id !== song.id)
+        } else {
+            newLikedSongs.push(song.id)
+        }
+        setLikedSongs(newLikedSongs)
     }
+
 
     return (
         <div className={styles.song}>
             <Link href={`/song/${song.id}`} passHref>
                 <div className={styles.imageContainer}>
-                    {imagePath &&
-                        <Image
-                            src={`/../public/albumcovers/${imagePath}`}
-                            alt=""
-                            layout="fill"
-                            objectFit="contain"
-                        />
-                    }
+                    <Image
+                        src={`/albumcovers/${album ? album.coverImage : song.album.coverImage}`}
+                        alt=""
+                        layout="fill"
+                        objectFit="contain"
+                    />
                 </div>
             </Link>
 
@@ -79,11 +62,10 @@ export default function SongCompact({song, likedStart, session}) {
                 <p>{getFormattedTime(song.length)}</p>
                 <h4>{song.likes}</h4>
             </div>
-
             {session.user &&
                 <div className={styles.likeImageContainer} onClick={toggleLike}>
                     {
-                        liked
+                        likedSongs.includes(song.id)
                             ?
                             <Image
                                 src={likedImg}

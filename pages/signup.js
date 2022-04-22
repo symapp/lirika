@@ -8,14 +8,43 @@ const defaultUser = {
     email: "",
     name: "",
     password: "",
-    roles: [],
-    likedSongsIds: []
+    likedSongIds: []
 }
 
 const defaultErrors = {
     email: "",
     name: "",
     password: ""
+}
+
+const validate = async (user) => {
+    const users = await getAllUsers()
+
+    let errors = {...defaultErrors}
+
+    let isValid = true
+
+    if (users.map((user) => user.email).includes(user.email)) {
+        errors.email = "This E-Mail is already registered"
+        isValid = false
+    }
+
+    if (user.email.trim().length === 0) {
+        errors.email = "E-Mail can't be empty"
+        isValid = false
+    }
+
+    if (user.name.trim().length === 0) {
+        errors.name = "Name can't be empty"
+        isValid = false
+    }
+
+    if (user.password.trim().length === 0) {
+        errors.password = "Password can't be empty"
+        isValid = false
+    }
+
+    return {errors, isValid}
 }
 
 export default function SignUpPage({session}) {
@@ -26,21 +55,6 @@ export default function SignUpPage({session}) {
     const [user, setUser] = useState(defaultUser)
     const [error, setError] = useState("")
     const [errors, setErrors] = useState({...defaultErrors})
-
-    const validate = async  (user) => {
-        const users = await getAllUsers()
-
-        let errors = {...defaultErrors}
-
-        let isValid = true
-
-        if (users.map((user) => user.email).includes(user.email)) {
-            errors.email = "This E-Mail is already registered"
-            isValid=false
-        }
-
-        return { errors, isValid }
-    }
 
     const handleChange = (e) => {
         const name = e.target.name
