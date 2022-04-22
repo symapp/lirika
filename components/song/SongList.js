@@ -18,6 +18,7 @@ export default function SongList({songs, session, album, numbers}) {
             }
         }
 
+
         getLikedSongs()
     }, [session])
 
@@ -36,11 +37,12 @@ export default function SongList({songs, session, album, numbers}) {
     return songs && (
         <div className={[styles.songList, numbers && styles.numbered].join(" ")}>
             {
-                songs.map((song) => {
+                songs.sort((a, b) => a.indexInAlbum - b.indexInAlbum).map((song) => {
                     return (
                         <div key={song.id} className={numbers && styles.songContainer}>
                             {numbers && <h6>{song.indexInAlbum}</h6>}
-                            <SongCompact song={song} album={album} session={session} likedSongs={likedSongs} setLikedSongs={updateLikedSongs}/>
+                            <SongCompact song={song} album={album} session={session} likedSongs={likedSongs}
+                                         setLikedSongs={updateLikedSongs}/>
                         </div>
 
                     )

@@ -3,7 +3,6 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import Image from "next/image";
 import {getAlbumById} from "@lib/api";
-import AlbumList from "@components/album/AlbumList";
 import SongList from "@components/song/SongList";
 
 function getFormattedTime(time) {
@@ -15,7 +14,6 @@ export default function AlbumPage({session}) {
     const {id} = router.query
     const [album, setAlbum] = useState(null)
     const [albumLength, setAlbumLength] = useState(0)
-    const [songsForList, setSongsForList] = useState([])
 
     useEffect(() => {
         if (!id) return

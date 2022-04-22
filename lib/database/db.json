@@ -32,10 +32,7 @@
       "name": "asdfasdfa",
       "likedSongIds": [],
       "roles": [],
-      "id": 4,
-      "likedSongs": [
-        1
-      ]
+      "id": 4
     },
     {
       "email": "cu@cu",
@@ -44,7 +41,7 @@
       "likedSongIds": [],
       "roles": [],
       "id": 5,
-      "likedSongs": []
+      "likedSongs": 2
     },
     {
       "email": "ads@aids",
@@ -199,13 +196,13 @@
     {
       "id": 3,
       "name": "Artist name",
-      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
+      "imagePath": "woman_face.png",
       "last-edit": 0
     },
     {
       "id": 4,
       "name": "Artistname2 éas asdf sa d",
-      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
+      "imagePath": "woman_face.png",
       "last-edit": 0
     },
     {

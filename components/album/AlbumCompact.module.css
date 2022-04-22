@@ -25,7 +25,8 @@
 .albumInfo h3 {
     font-size: 2rem;
     color: #e0b7ff;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis
+}
+
+.albumInfo h5 {
+    color: #e0b7ffa0;
 }

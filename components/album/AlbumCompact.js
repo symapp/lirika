@@ -1,5 +1,5 @@
 import styles from "./AlbumCompact.module.css"
-import {getAlbumArtistsById, getAlbumCoverFileName, getSongsByAlbumId} from "@lib/api";
+import {getArtistsByArtistIds, getAlbumCoverFileName, getSongsByAlbumId} from "@lib/api";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export default function AlbumCompact({album}) {
 
     useEffect(() => {
         const getArtists = async () => {
-            const artists = await getAlbumArtistsById(album.artistIds)
+            const artists = await getArtistsByArtistIds(album.artistIds)
             setArtists(artists)
         }
 

@@ -1,6 +1,6 @@
 import styles from "./SongCompact.module.css"
 import {useEffect, useState} from "react";
-import {getSongArtistsById} from "@lib/api";
+import {getArtistsByArtistIds} from "@lib/api";
 import Image from "next/image";
 import likedImg from "/public/liked.png"
 import unlikedImg from "/public/unliked.png"
@@ -12,24 +12,27 @@ function getFormattedTime(time) {
 
 export default function SongCompact({song, session, album, likedSongs, setLikedSongs}) {
     const [artists, setArtists] = useState()
+    const [liked, setLiked] = useState(false)
 
     useEffect(() => {
         const getArtists = async () => {
-            const artists = await getSongArtistsById(song.artistIds)
+            const artists = await getArtistsByArtistIds(song.artistIds)
             setArtists(artists)
         }
 
         getArtists()
     }, [session.user, song])
+    
 
     const toggleLike = async () => {
         let newLikedSongs = [...likedSongs]
 
-        if (newLikedSongs.includes(song.id)) {
-            newLikedSongs = likedSongs.filter((id) => id !== song.id)
+        if (likedSongs.includes(song.id)) {
+            newLikedSongs = newLikedSongs.filter((id) => id !== song.id)
         } else {
             newLikedSongs.push(song.id)
         }
+
         setLikedSongs(newLikedSongs)
     }
 

@@ -1,7 +1,4 @@
 .songList {
-    background-color: #1e1e1e;
-    padding: 0.5rem;
-    border-radius: 10px;
     display: grid;
     row-gap: 1rem;
 }

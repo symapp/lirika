@@ -4,13 +4,20 @@ import Link from "next/link"
 import "./_app.css"
 import {useRouter} from "next/router";
 
-export default function App({ Component, pageProps }) {
+export default function App({Component, pageProps}) {
     const router = useRouter()
     const session = useSession()
     const newPageProps = {
         ...pageProps,
         session
     }
+
+    // document.querySelectorAll('h3, h4, h5, h6, p').forEach(function (elem) {
+    //     if (parseFloat(window.getComputedStyle(elem).width) === parseFloat(window.getComputedStyle(elem.parentElement).width)) {
+    //         elem.setAttribute('title', elem.textContent);
+    //     }
+    // });
+
     return (
         <>
             <Header>
@@ -28,11 +35,14 @@ export default function App({ Component, pageProps }) {
                 </Link>
                 {
                     session.user
-                    ?
-                        <div onClick={() => {session.logout(); router.push("/")}}>
+                        ?
+                        <div onClick={() => {
+                            session.logout();
+                            router.push("/")
+                        }}>
                             Logout
                         </div>
-                    :
+                        :
                         <Link href="/login" passHref>
                             Login
                         </Link>

@@ -8,6 +8,10 @@
     gap: 1rem;
 }
 
+.artist:hover {
+    cursor: pointer;
+}
+
 .imageContainer {
     min-width: 150px;
     height: 150px;
@@ -19,7 +23,4 @@
 .artist h2 {
     width: 100%;
     text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis
 }

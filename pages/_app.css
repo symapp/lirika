@@ -8,6 +8,8 @@
     box-sizing: border-box;
     font-weight: normal;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
 }
 
 html,

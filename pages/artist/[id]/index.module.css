@@ -1,0 +1,40 @@
+.artist h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 5rem;
+    padding: 0;
+    text-align: left;
+}
+
+.artist h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    color: #C1ABD6A0;
+}
+
+.mainContent .title {
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+}
+
+.imageContainer {
+    min-width: 200px;
+    min-height: 200px;
+    position: relative;
+    border-radius: 100px;
+    border: 2px solid #e0b7ff;
+}
+
+.artist header {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.artist hr {
+    border: 1px solid #e0b7ff;
+    width: 100%;
+    margin: 2rem auto 0;
+}
