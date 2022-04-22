@@ -21,10 +21,10 @@ export default function AlbumCompact({album}) {
             <Link href={`/album/${album.id}`} passHref>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/albumcovers/${album.coverImage}`}
+                        src={`/${album.coverImage}`}
                         alt=""
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                     />
                 </div>
             </Link>

@@ -29,7 +29,7 @@ a:hover {
     cursor: pointer;
 }
 
-button, .error {
+button, .error, .buttons a {
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     font-size: 1rem;
@@ -41,7 +41,7 @@ button, .error {
     border-radius: 5px;
 }
 
-button:hover {
+button:hover, .buttons a {
     cursor: pointer;
 }
 

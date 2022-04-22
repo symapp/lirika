@@ -33,13 +33,13 @@ export default function SongPage() {
     return song && (
         <div className={styles.song}>
             <header>
-                <Link href={`/album/${song.album.id}`}>
+                <Link href={`/album/${song.album.id}`} passHref>
                     <div className={styles.imageContainer}>
                         <Image
-                            src={`/albumcovers/${song.album.coverImage}`}
+                            src={`/${song.album.coverImage}`}
                             alt="cover"
                             layout="fill"
-                            objectFit="contain"
+                            objectFit="cover"
                         />
                     </div>
                 </Link>

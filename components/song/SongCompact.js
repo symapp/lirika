@@ -2,8 +2,8 @@ import styles from "./SongCompact.module.css"
 import {useEffect, useState} from "react";
 import {getArtistsByArtistIds} from "@lib/api";
 import Image from "next/image";
-import likedImg from "/public/liked.png"
-import unlikedImg from "/public/unliked.png"
+import likedImg from "/public/other/liked.png"
+import unlikedImg from "/public/other/unliked.png"
 import Link from "next/link";
 
 function getFormattedTime(time) {
@@ -45,10 +45,10 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
             <Link href={`/album/${album ? album.id : song.album.id}`} passHref>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/albumcovers/${album ? album.coverImage : song.album.coverImage}`}
+                        src={`/${album ? album.coverImage : song.album.coverImage}`}
                         alt=""
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                     />
                 </div>
             </Link>
@@ -83,7 +83,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
                                 src={likedImg}
                                 alt=""
                                 layout="fill"
-                                objectFit="contain"
+                                objectFit="cover"
                             />
                             :
                             <div className={styles.unliked}>
@@ -91,7 +91,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
                                     src={unlikedImg}
                                     alt=""
                                     layout="fill"
-                                    objectFit="contain"
+                                    objectFit="cover"
                                 />
                             </div>
                     }

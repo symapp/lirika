@@ -1,5 +1,4 @@
 import styles from "./ArtistCompact.module.css"
-import {ImageConfigContext} from "next/dist/shared/lib/image-config-context";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,10 +8,10 @@ export default function ArtistCompact({artist}) {
             <div className={styles.artist}>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/albumcovers/${artist.imagePath}`}
+                        src={artist.filePath}
                         alt=""
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                     />
                 </div>
 

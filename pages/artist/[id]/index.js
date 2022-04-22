@@ -30,10 +30,10 @@ export default function ArtistPage({session}) {
             <header>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/../public/albumcovers/${artist.imagePath}`}
+                        src={artist.filePath}
                         alt="cover"
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                     />
                 </div>
                 <div className={styles.artistInfo}>

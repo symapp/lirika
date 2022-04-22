@@ -1,60 +1,20 @@
 {
   "users": [
     {
-      "email": "admin@admin.ch",
-      "password": "$2a$10$dsp.yE8mJkmpwtl6HOOc3OJN.vDsnKGSFUVb3ezulFbrQ/QsULl6C",
-      "name": "adam admin",
+      "email": "cu@cu",
+      "password": "$2a$10$RjaljzqCTPlev99ZFoOrX.5cg2R2JuWdNdqIDiF8MXYowb0DQ9qJa",
+      "name": "cucu",
       "likedSongIds": [
         1
       ],
       "roles": [],
       "id": 1
-    },
-    {
-      "email": "asdf@adsf",
-      "password": "$2a$10$0DWd8NOsY1ybwnMCWh4hZeI3d/et2ZnFjDXEPsRZjITTcEQXB528q",
-      "name": "asdf",
-      "likedSongIds": [],
-      "roles": [],
-      "id": 2
-    },
-    {
-      "email": "admin@admin.chs",
-      "password": "$2a$10$ySOcvsU.L0lwO72otlu84u6m.7ErzqpLk6hpJh7Tr3ClafcLnfj5C",
-      "name": "asdf",
-      "likedSongIds": [],
-      "roles": [],
-      "id": 3
-    },
-    {
-      "email": "asdfsfklajs@asdfasdfadsfa",
-      "password": "$2a$10$ZiApLqMWLrYR9VZp9I/BJOGsLNppoYNlfofInkRNZDxAEXlDeTYqS",
-      "name": "asdfasdfa",
-      "likedSongIds": [],
-      "roles": [],
-      "id": 4
-    },
-    {
-      "email": "cu@cu",
-      "password": "$2a$10$RjaljzqCTPlev99ZFoOrX.5cg2R2JuWdNdqIDiF8MXYowb0DQ9qJa",
-      "name": "cucu",
-      "likedSongIds": [],
-      "roles": [],
-      "id": 5,
-      "likedSongs": 2
-    },
-    {
-      "email": "ads@aids",
-      "password": "$2a$10$S.nkA9ninQi9FCaXsTJUdOw.4kL/Y7UJUWdb07.LAD4CxGvDX/aiK",
-      "name": "asdölfkj",
-      "likedSongIds": [],
-      "roles": [],
-      "id": 6
     }
   ],
   "songs": [
     {
       "id": 1,
+      "userId": 1,
       "indexInAlbum": 1,
       "name": "songname",
       "albumId": 1,
@@ -107,6 +67,7 @@
     },
     {
       "id": 2,
+      "userId": 1,
       "indexInAlbum": 2,
       "name": "songname",
       "albumId": 1,
@@ -161,6 +122,7 @@
   "albums": [
     {
       "id": 1,
+      "userId": 1,
       "name": "aasdfasfdasdfa asa asdf ",
       "year": 2005,
       "artistIds": [
@@ -171,6 +133,7 @@
     },
     {
       "id": 2,
+      "userId": 1,
       "name": "Albumname 2",
       "year": 2050,
       "artistIds": [
@@ -182,34 +145,32 @@
   ],
   "artists": [
     {
-      "id": 1,
-      "name": "Artist name",
-      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
-      "last-edit": 0
+      "name": "asdfasdf",
+      "lastEdit": "2022-04-22T11:45:49.333Z",
+      "filePath": "/f7f73e9c-5587-4523-8eba-a0654a85c7e1.png",
+      "userId": 1,
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Artistname2",
-      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
-      "last-edit": 0
+      "name": "test2",
+      "lastEdit": "2022-04-22T11:58:31.429Z",
+      "filePath": "/artistimages/9e50bb4a-7680-419e-b852-5265ed7b2048.png",
+      "userId": 1,
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Artist name",
-      "imagePath": "woman_face.png",
-      "last-edit": 0
+      "name": "asdfsdfasdfa",
+      "lastEdit": "2022-04-22T11:58:42.720Z",
+      "filePath": "/artistimages/5445eb2f-b7dd-4d99-a6c3-07e4fb43c345.png",
+      "userId": 1,
+      "id": 3
     },
     {
-      "id": 4,
-      "name": "Artistname2 éas asdf sa d",
-      "imagePath": "woman_face.png",
-      "last-edit": 0
-    },
-    {
-      "id": 5,
-      "name": "Artist name",
-      "imagePath": "d077db5e-c482-487e-ac8c-bc5c4eabdf5b.png",
-      "last-edit": 0
+      "name": "adf",
+      "lastEdit": "2022-04-22T12:05:20.601Z",
+      "filePath": "/artistimages/7e2f6ebc-3dca-49ba-8e67-6ee3fb3554d3.png",
+      "userId": 1,
+      "id": 4
     }
   ]
 }

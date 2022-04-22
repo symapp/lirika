@@ -45,10 +45,10 @@ export default function AlbumPage({session}) {
             <header>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/../public/albumcovers/${album.coverImage}`}
+                        src={`/${album.coverImage}`}
                         alt="cover"
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                     />
                 </div>
                 <div className={styles.albumInfo}>
