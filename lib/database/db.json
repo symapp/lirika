@@ -152,10 +152,24 @@
       "id": 1
     },
     {
-      "name": "asdf",
-      "lastEdit": "2022-04-22T13:54:58.843Z",
+      "name": "adsf",
+      "lastEdit": "2022-04-22T13:59:00.063Z",
+      "filePath": "/artistimages/4053e62e-897f-4040-bb7d-37a15b4b7d0a.jpeg",
       "userId": 1,
-      "id": 2
+      "id": 4
+    },
+    {
+      "name": "asdf",
+      "lastEdit": "2022-04-22T13:59:12.276Z",
+      "filePath": "/artistimages/a0c2a950-6613-4936-a764-06cfe61cb18a.png",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "name": "asdfasdfasdfsdfffff",
+      "lastEdit": "2022-04-22T14:00:16.363Z",
+      "userId": 1,
+      "id": 6
     }
   ]
 }

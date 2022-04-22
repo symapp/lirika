@@ -89,7 +89,7 @@ export default function ArtistForm({session, artistToEdit}) {
 
         artist.lastEdit = new Date().toISOString()
 
-        if (base64Image) {
+        if (base64Image && !artistToEdit) {
             const filePath = await uploadArtistImage(base64Image, "artistimages")
 
             artist.filePath = filePath
