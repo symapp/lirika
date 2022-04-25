@@ -5,7 +5,7 @@
       "password": "$2a$10$RjaljzqCTPlev99ZFoOrX.5cg2R2JuWdNdqIDiF8MXYowb0DQ9qJa",
       "name": "cucu",
       "likedSongIds": [
-        1
+        2
       ],
       "roles": [],
       "id": 1
@@ -166,10 +166,32 @@
       "id": 5
     },
     {
-      "name": "asdfasdfasdfsdfffff",
-      "lastEdit": "2022-04-22T14:00:16.363Z",
+      "name": "test ",
+      "filePath": "/artistimages/da84791a-aa42-47e1-b20c-aa830e490fa3.png",
+      "lastEdit": "2022-04-25T08:57:37.360Z",
       "userId": 1,
       "id": 6
+    },
+    {
+      "name": "fsdfsdfsdfasdffffffff",
+      "filePath": "/artistimages/6793c4ec-c29b-4a19-a045-a93ed518e942.png",
+      "lastEdit": "2022-04-25T08:59:26.151Z",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "name": "sdfg",
+      "filePath": "/artistimages/7955326c-a082-4e50-abea-c17391754b6d.jpeg",
+      "lastEdit": "2022-04-25T09:03:32.065Z",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "name": "a",
+      "filePath": "/artistimages/9dd87c67-77cf-4370-9364-519dceaa59d0.png",
+      "lastEdit": "2022-04-25T09:04:19.745Z",
+      "userId": 1,
+      "id": 9
     }
   ]
 }

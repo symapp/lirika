@@ -42,9 +42,11 @@ export default function AlbumCompact({album}) {
                                     {artist.name}
                                 </Link>
                             }).reduce((prev, curr) => [prev, ', ', curr])
-                        } - {
-                        album.year
-                    }
+                        }{
+                            artists.length > 0 && album.year && " - "
+                        }{
+                            album.year
+                        }
                     </h5>
                 </div>
             </div>
