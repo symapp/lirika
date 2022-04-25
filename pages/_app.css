@@ -7,9 +7,34 @@
     padding: 0;
     box-sizing: border-box;
     font-weight: normal;
-    overflow: hidden;
+    overflow-x: hidden;
+
+}
+
+h1, h2, h3, h4, h5, h6, p {
     white-space: nowrap;
     text-overflow: ellipsis
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #343434;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #e0b7ffa0;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #e0b7ff;
 }
 
 html,
