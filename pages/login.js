@@ -41,7 +41,7 @@ export default function LoginPage({ session }) {
             if(e.status === 400) {
                 setError("validation failed")
             } else {
-                alert(e)
+                alert("Couldn't login...")
             }
         }
     }

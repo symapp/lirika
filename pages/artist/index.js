@@ -13,8 +13,9 @@ export default function ArtistsPage({ session }) {
                 const artists = await getAllArtists()
                 setArtists(artists)
             } catch (e) {
-                alert(e)
+                alert("Couldn't load artists...")
             }
+
         }
 
         getArtists()

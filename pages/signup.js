@@ -96,7 +96,7 @@ export default function SignUpPage({session}) {
             if (e.status === 400) {
                 setError("validation failed")
             } else {
-                alert(e)
+                alert("Couldn't sign up...")
             }
         }
     }

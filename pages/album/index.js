@@ -12,7 +12,7 @@ export default function AlbumsPage({ session }) {
                 const albums = await getAllAlbums()
                 setAlbums(albums)
             } catch (e) {
-                alert(e)
+                alert("Couldn't load albums...")
             }
         }
 

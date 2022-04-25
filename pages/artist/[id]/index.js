@@ -19,7 +19,7 @@ export default function ArtistPage({session}) {
                 const artist = await getArtistById(id)
                 setArtist(artist)
             } catch (e) {
-                alert(e)
+                alert("Couldn't load artist...")
             }
         }
 

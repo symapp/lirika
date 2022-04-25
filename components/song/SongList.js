@@ -14,7 +14,7 @@ export default function SongList({songs, session, album, numbers}) {
                 const likedSongs = await getLikedSongIdsByUserId(session, session.user.id)
                 setLikedSongs(likedSongs)
             } catch (e) {
-                alert(e)
+                alert("Couldn't load liked songs...")
             }
         }
 
@@ -29,7 +29,7 @@ export default function SongList({songs, session, album, numbers}) {
         try {
             setLikedSongsTo(session, newLikedSongs)
         } catch (e) {
-            alert(e)
+            alert("Couldn't update liked songs...")
         }
     }
 

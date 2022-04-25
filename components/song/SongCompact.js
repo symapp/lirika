@@ -19,7 +19,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
                 const artists = await getArtistsByArtistIds(song.artistIds)
                 setArtists(artists)
             } catch (e) {
-                alert(e)
+                alert("Couldn't load artists...")
             }
         }
 

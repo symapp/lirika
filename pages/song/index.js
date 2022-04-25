@@ -13,7 +13,7 @@ export default function SongsPage({ session }) {
                 const songs = await getAllSongs()
                 setSongs(songs)
             } catch (e) {
-                alert(e)
+                alert("Couldn't load song...")
             }
         }
 

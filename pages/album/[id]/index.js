@@ -23,7 +23,7 @@ export default function AlbumPage({session}) {
                 const album = await getAlbumById(id)
                 setAlbum(album)
             } catch (e) {
-                alert(e)
+                alert("Couldn't load album...")
             }
         }
 
