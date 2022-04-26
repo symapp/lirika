@@ -2,7 +2,7 @@ import styles from "./index.module.css"
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import Image from "next/image";
-import {getArtistById} from "@lib/api";
+import {deleteArtist, getArtistById} from "@lib/api";
 import SongList from "@components/song/SongList";
 import AlbumList from "@components/album/AlbumList";
 import Link from "next/link";
@@ -26,6 +26,16 @@ export default function ArtistPage({session}) {
         getArtist()
     }, [id])
 
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        try {
+            await deleteArtist(session.accessToken, id)
+            await router.push("/artist")
+        } catch (e) {
+            alert("Couldn't delete artist...")
+        }
+    }
+
     return artist && (
         <div className={styles.artist}>
             <header>
@@ -42,11 +52,15 @@ export default function ArtistPage({session}) {
                 </div>
             </header>
             <hr/>
-            <div className={styles.options}>
-                <div className="buttonsLeft">
-                    <Link href={`/artist/${artist.id}/edit`} passHref>Edit</Link>
+            {
+                session.user && session.user.id === artist.userId &&
+                <div className={styles.options}>
+                    <div className="buttonsLeft">
+                        <Link href={`/artist/${artist.id}/edit`} passHref>Edit</Link>
+                        <button onClick={handleDelete}>Delete</button>
+                    </div>
                 </div>
-            </div>
+            }
 
             <div className={styles.mainContent}>
                 {

@@ -96,12 +96,10 @@ export default function ArtistForm({session, artistToEdit}) {
 
         artist.lastEdit = new Date().toISOString()
 
-
         if (artist.id) {
             await updateArtist(session.accessToken, artist)
             await router.push(`/artist/${artist.id}`)
         } else {
-
             artist.userId = session.user.id
             const newArtist = await createArtist(session.accessToken, artist)
             await router.push(`/artist/${newArtist.id}`)
