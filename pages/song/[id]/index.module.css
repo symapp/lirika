@@ -94,3 +94,8 @@
     border-color: white;
     cursor: pointer;
 }
+
+.song h6 {
+    font-size: 1rem;
+    color: #C1ABD6A0;
+}

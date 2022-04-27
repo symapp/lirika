@@ -14,6 +14,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
     const [artists, setArtists] = useState([])
 
     useEffect(() => {
+        if (song.artistIds.length < 1) return
         const getArtists = async () => {
             try {
                 const artists = await getArtistsByArtistIds(song.artistIds)
@@ -25,7 +26,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
 
         getArtists()
     }, [session.user, song])
-    
+
 
     const toggleLike = async () => {
         let newLikedSongs = [...likedSongs]
@@ -45,7 +46,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
             <Link href={`/album/${album ? album.id : song.album.id}`} passHref>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/${album ? album.coverImage : song.album.coverImage}`}
+                        src={album ? album.filePath : song.album.filePath}
                         alt=""
                         layout="fill"
                         objectFit="cover"
@@ -60,19 +61,20 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
                     </Link>
                     <h5>
                         {
-                            artists.length > 0 &&
-                            artists.map((artist) => {
-                                return (
-                                    <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
-                                        {artist.name}
-                                    </Link>
-                                )
-                            }).reduce((prev, curr) => [prev, ', ', curr])
+                            artists.length > 0 ?
+                                artists.map((artist) => {
+                                    return (
+                                        <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                            {artist.name}
+                                        </Link>
+                                    )
+                                }).reduce((prev, curr) => [prev, ', ', curr])
+                                :
+                                <>unknown</>
                         }
                     </h5>
                 </div>
                 <p>{getFormattedTime(song.length)}</p>
-                <h4>{song.likes}</h4>
             </div>
             {session.user &&
                 <div className={styles.likeImageContainer} onClick={toggleLike}>

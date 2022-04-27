@@ -1,28 +1,31 @@
-import {createArtist, getAllArtists, updateArtist, uploadImage} from "@lib/api";
-import {useRouter} from "next/router";
+import {createAlbum, getAllAlbums, getAllArtists, updateAlbum, uploadImage} from "@lib/api";
 import {useEffect, useRef, useState} from "react";
-import styles from "./ArtistForm.module.css"
+import {useRouter} from "next/router";
+import styles from "./AlbumForm.module.css"
 import Image from "next/image";
 
-const defaultArtist = {
+const defaultAlbum = {
     name: "",
-    image: ""
+    year: "",
+    filePath: "",
+    artistIds: []
 }
 
-const validateArtist = async (artist, artistToEdit) => {
+const validateAlbum = async (album, albumToEdit) => {
     const errors = {
         name: "",
+        year: "",
         image: ""
     }
     let isValid = true
 
     try {
-        const artists = await getAllArtists()
-        if (artists.map(artist => artist.name).includes(artist.name)) {
+        const albums = await getAllAlbums()
+        if (albums.map(album => album.name).includes(album.name)) {
             errors.name = "There's already an artist with that name"
             isValid = false
         }
-        if (artistToEdit && artist.name === artistToEdit.name) {
+        if (albumToEdit && album.name === albumToEdit.name) {
             errors.name = ""
             isValid = true
         }
@@ -31,63 +34,96 @@ const validateArtist = async (artist, artistToEdit) => {
         isValid = false
     }
 
-    if (artist.name.length === 0) {
+    if (album.name.length === 0) {
         errors.name = "Name can't be empty"
         isValid = false
     }
 
-    if (!artistToEdit) {
-        if (!artist.filePath) {
+    if (!albumToEdit) {
+        if (!album.filePath) {
             errors.image = "You have to input an image"
             isValid = false
         }
     } else {
-        if (!artist.filePath) {
-            artist.filePath = artistToEdit.filePath
+        if (!album.filePath) {
+            album.filePath = albumToEdit.filePath
         }
     }
 
     return {errors, isValid}
 }
 
-export default function ArtistForm({session, artistToEdit}) {
+export default function AlbumForm({session, albumToEdit}) {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
-    const [errors, setErrors] = useState(defaultArtist)
-    const [artist, setArtist] = useState(defaultArtist)
+    const [errors, setErrors] = useState(defaultAlbum)
+    const [album, setAlbum] = useState(defaultAlbum)
     const [base64Image, setBase64Image] = useState("")
+    const [artists, setArtists] = useState([])
     const fileInput = useRef(null)
 
     useEffect(() => {
-        if (artistToEdit) {
-            setArtist(artistToEdit)
+        if (albumToEdit) {
+            setAlbum(albumToEdit)
         }
-    }, [artistToEdit])
+    }, [albumToEdit])
+
+    useEffect(() => {
+        const getArtists = async () => {
+            try {
+                const artists = await getAllArtists()
+                setArtists(artists)
+            } catch (e) {
+                alert("Couldn't load artists")
+            }
+        }
+
+        getArtists()
+    }, [])
 
     const handleChange = (e) => {
         const name = e.target.name
         const value = e.target.value
-        setArtist({
-            ...artist,
+        setAlbum({
+            ...album,
             [name]: value
+        })
+    }
+
+    const handleChangeSelect = (e) => {
+        const select = e.target
+        let result = [];
+        let options = select && select.options;
+        let opt;
+
+        for (let i=0, iLen=options.length; i<iLen; i++) {
+            opt = options[i];
+
+            if (opt.selected) {
+                result.push(opt.value || opt.text);
+            }
+        }
+        setAlbum({
+            ...album,
+            artistIds: result
         })
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
-        setErrors(defaultArtist)
+        setErrors(defaultAlbum)
 
         // upload image
         if (base64Image) {
-            artist.filePath = await uploadImage(base64Image, "artistimages")
+            album.filePath = await uploadImage(base64Image, "albumImages")
         }
 
         // trimming
-        artist.name = artist.name.trim()
+        album.name = album.name.trim()
 
         // validation
-        const result = await validateArtist(artist, artistToEdit)
+        const result = await validateAlbum(album, albumToEdit)
 
         if (!result.isValid) {
             setErrors(result.errors)
@@ -95,13 +131,13 @@ export default function ArtistForm({session, artistToEdit}) {
             return
         }
 
-        if (artist.id) {
-            await updateArtist(session.accessToken, artist)
-            await router.push(`/artist/${artist.id}`)
+        if (album.id) {
+            await updateAlbum(session.accessToken, album)
+            await router.push(`/album/${album.id}`)
         } else {
-            artist.userId = session.user.id
-            const newArtist = await createArtist(session.accessToken, artist)
-            await router.push(`/artist/${newArtist.id}`)
+            album.userId = session.user.id
+            const newAlbum = await createAlbum(session.accessToken, album)
+            await router.push(`/album/${newAlbum.id}`)
         }
 
         setIsLoading(false)
@@ -125,11 +161,27 @@ export default function ArtistForm({session, artistToEdit}) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className={styles.artistForm}>
+        <form onSubmit={handleSubmit} className={styles.albumForm}>
             <fieldset>
                 <label>Name</label>
-                <input type="text" name="name" onChange={handleChange} value={artist.name}/>
+                <input type="text" name="name" onChange={handleChange} value={album.name}/>
                 {errors.name && <div>{errors.name}</div>}
+            </fieldset>
+            <fieldset>
+                <label>Year</label>
+                <input type="number" min="1900" max="2099" step="1" name="year" onChange={handleChange}
+                       value={album.year}/>
+                {errors.year && <div>{errors.year}</div>}
+            </fieldset>
+            <fieldset>
+                <label>Artists</label>
+                <select name="artists" onChange={handleChangeSelect} value={album.artistIds} multiple>
+                    {
+                        artists.map((artist) => {
+                            return <option key={artist.id} value={artist.id}>{artist.name}</option>
+                        })
+                    }
+                </select>
             </fieldset>
             <fieldset>
                 <label>Image</label>
@@ -140,7 +192,7 @@ export default function ArtistForm({session, artistToEdit}) {
                     onChange={onFileInputChange}
                 />
                 {
-                    (base64Image || artistToEdit) &&
+                    (base64Image || albumToEdit) &&
                     <div className={styles.previewContainer}>
                         <div className={styles.imageContainer}>
                             {
@@ -153,7 +205,7 @@ export default function ArtistForm({session, artistToEdit}) {
                                     />
                                     :
                                     <Image
-                                        src={artistToEdit.filePath}
+                                        src={albumToEdit.filePath}
                                         alt="image preview"
                                         layout="fill"
                                         objectFit="cover"

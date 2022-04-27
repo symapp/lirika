@@ -2,7 +2,7 @@ import styles from "./index.module.css"
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import Image from "next/image";
-import {getAlbumById} from "@lib/api";
+import {deleteAlbum, getAlbumById} from "@lib/api";
 import SongList from "@components/song/SongList";
 import Link from "next/link";
 
@@ -40,18 +40,29 @@ export default function AlbumPage({session}) {
         setAlbumLength(length)
     }, [album])
 
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        try {
+            await deleteAlbum(session.accessToken, id)
+            await router.push("/album")
+        } catch (e) {
+            alert("Couldn't delete album...")
+        }
+    }
+
     return album && (
         <div className={styles.album}>
             <header>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/${album.coverImage}`}
+                        src={album.filePath}
                         alt="cover"
                         layout="fill"
                         objectFit="cover"
                     />
                 </div>
                 <div className={styles.albumInfo}>
+                    <h4>Album</h4>
                     <h1>{album.name}</h1>
                     <h2>
                         {
@@ -73,6 +84,15 @@ export default function AlbumPage({session}) {
                 </div>
             </header>
             <hr/>
+            {
+                session.user && session.user.id === album.userId &&
+                <div>
+                    <div className="buttonsLeft">
+                        <Link href={`/album/${album.id}/edit`} passHref>Edit</Link>
+                        <button onClick={handleDelete}>Delete</button>
+                    </div>
+                </div>
+            }
             <div className={styles.songs}>
                 <SongList songs={album.songs} session={session} album={album} numbers={true}/>
             </div>

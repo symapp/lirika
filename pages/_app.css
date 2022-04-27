@@ -61,7 +61,7 @@ button, .error, .buttons a, .buttonsLeft a {
     padding: 0.5em 2rem;
     margin: 0.5em;
     background-color: #e0b7ff;
-    color: #1e1e1e;
+    color: #1e1e1e !important;
     border: none;
     border-radius: 5px;
 }
@@ -81,7 +81,7 @@ button:hover, .buttons a:hover, .buttonsLeft a:hover {
     justify-content: flex-start;
 }
 
-input {
+input, select {
     width: 90%;
     margin: 0.5rem;
     border: 2px solid #C1ABD6;
@@ -94,10 +94,15 @@ input {
     font-size: 1.2rem;
 }
 
-input:focus {
+input:focus, select:focus {
     border: 2px solid white;
     outline: none;
     color: #e4c4ff;
+}
+
+select option:checked{
+    background: #e0b7ff;
+    color: black;
 }
 
 label {

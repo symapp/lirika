@@ -48,6 +48,7 @@ export default function ArtistPage({session}) {
                     />
                 </div>
                 <div className={styles.artistInfo}>
+                    <h4>Artist</h4>
                     <h1>{artist.name}</h1>
                 </div>
             </header>

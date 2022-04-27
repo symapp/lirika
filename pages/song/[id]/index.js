@@ -27,7 +27,6 @@ export default function SongPage() {
         }
 
         loadSong()
-
     }, [id, router])
 
     return song && (
@@ -36,7 +35,7 @@ export default function SongPage() {
                 <Link href={`/album/${song.album.id}`} passHref>
                     <div className={styles.imageContainer}>
                         <Image
-                            src={`/${song.album.coverImage}`}
+                            src={song.album.filePath}
                             alt="cover"
                             layout="fill"
                             objectFit="cover"
@@ -44,18 +43,19 @@ export default function SongPage() {
                     </div>
                 </Link>
                 <div className={styles.songInfo}>
+                    <h6>Song</h6>
                     <h1>{song.name}</h1>
                     <h2>
                         {
-                            song.artists.length > 0 &&
-                            song.artists.map((artist) => {
-                                return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
-                                    {artist.name}
-                                </Link>
-                            }).reduce((prev, curr) => [prev, ', ', curr])
-                        }{
-                        song.artists.length > 0 && song.album.year && " - "
-                    }{
+                            song.artists.length > 0 ?
+                                song.artists.map((artist) => {
+                                    return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                        {artist.name}
+                                    </Link>
+                                }).reduce((prev, curr) => [prev, ', ', curr])
+                                :
+                                <>unknown</>
+                        } - {
                         song.album.year
                     } - {
                         getFormattedTime(song.length)
@@ -68,30 +68,38 @@ export default function SongPage() {
                 <div className={styles.lyrics}>
                     <h3>Lyrics</h3>
                     {
-                        song.lyrics.map((group) => {
-                            return <div key={group.id}>
-                                <h4>{group.groupName}</h4>
-                                {
-                                    group.content.map((line) => {
-                                        return <p key={line.id}>
-                                            {line.text}
-                                            <br/>
-                                        </p>
-                                    })
-                                }
-                            </div>
-                        })
+                        song.lyrics.length > 0 ?
+                            song.lyrics.map((group) => {
+                                return <div key={group.id}>
+                                    <h4>{group.groupName}</h4>
+                                    {
+                                        group.content.map((line) => {
+                                            return <p key={line.id}>
+                                                {line.text}
+                                                <br/>
+                                            </p>
+                                        })
+                                    }
+                                </div>
+                            })
+                            :
+                            <h4>There are no lyrics avalable</h4>
                     }
                 </div>
                 <div className={styles.otherInfo}>
-                    <h3>Genres</h3>
-                    <div className={styles.genres}>
-                        {song.genres.map((genre) => {
-                            return <li key={genre}>
-                                {genre}
-                            </li>
-                        })}
-                    </div>
+                    {
+                        song.genres.length > 0 &&
+                        <>
+                            <h3>Genres</h3>
+                            <div className={styles.genres}>
+                                {song.genres.map((genre) => {
+                                    return <li key={genre}>
+                                        {genre}
+                                    </li>
+                                })}
+                            </div>
+                        </>
+                    }
                     <h3>Album</h3>
                     <AlbumCompact album={song.album}/>
                 </div>

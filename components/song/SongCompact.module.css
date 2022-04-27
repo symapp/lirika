@@ -26,15 +26,9 @@
 }
 
 .songInfo p {
-    width: 50px;
     margin: auto 0;
     text-align: right;
     font-family: 'Azeret Mono', monospace;
-}
-
-.songInfo h4 {
-    width: 100px;
-    margin: auto 0;
 }
 
 .mainSongInfo {

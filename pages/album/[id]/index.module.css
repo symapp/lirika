@@ -9,9 +9,7 @@
     text-align: left;
 }
 
-.album h2, .album a {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
+.album h2, .album a, .album h4 {
     color: #C1ABD6A0;
 }
 
@@ -48,7 +46,7 @@
 
 .album a:hover {
     cursor: pointer;
-    color: white !important;
+    color: white;
 }
 
 .imageContainer:hover {

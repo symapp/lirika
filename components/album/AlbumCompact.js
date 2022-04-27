@@ -8,13 +8,15 @@ export default function AlbumCompact({album}) {
     const [artists, setArtists] = useState([])
 
     useEffect(() => {
+        if (album.artistIds.length < 1) return
+
         const getArtists = async () => {
             try {
                 const artists = await getArtistsByArtistIds(album.artistIds)
+                setArtists(artists)
             } catch (e) {
                 alert("Couldn't get artists...")
             }
-            setArtists(artists)
         }
 
         getArtists()
@@ -25,7 +27,7 @@ export default function AlbumCompact({album}) {
             <Link href={`/album/${album.id}`} passHref>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/${album.coverImage}`}
+                        src={album.filePath}
                         alt=""
                         layout="fill"
                         objectFit="cover"

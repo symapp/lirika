@@ -1,4 +1,3 @@
-import styles from "./edit.module.css"
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import {getArtistByIdWithoutMoreInfo} from "@lib/api";

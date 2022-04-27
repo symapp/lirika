@@ -1,0 +1,18 @@
+.imageContainer {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 75px;
+    border: 1px solid #e0b7ff;
+}
+
+.previewContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+    justify-items: start;
+    margin: 0.5rem;
+}
+
