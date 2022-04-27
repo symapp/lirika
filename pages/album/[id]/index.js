@@ -61,11 +61,14 @@ export default function AlbumPage({session}) {
                                     {artist.name}
                                 </Link>
                             }).reduce((prev, curr) => [prev, ', ', curr])
-                        } - {
+                        }{
+                        album.artists.length > 0 && album.year && " - "
+                    }{
                         album.year
                     } - {
                         getFormattedTime(albumLength)
                     }
+
                     </h2>
                 </div>
             </header>

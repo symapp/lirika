@@ -29,7 +29,7 @@ const validateArtist = async (artist, artistToEdit) => {
         isValid = false
     }
 
-    if (artist.name.trim().length === 0) {
+    if (artist.name.length === 0) {
         errors.name = "Name can't be empty"
         isValid = false
     }
@@ -84,6 +84,8 @@ export default function ArtistForm({session, artistToEdit}) {
 
             artist.filePath = filePath
         }
+
+        artist.name = artist.name.trim()
 
         // validation
         const result = await validateArtist(artist, artistToEdit)

@@ -9,7 +9,11 @@ export default function AlbumCompact({album}) {
 
     useEffect(() => {
         const getArtists = async () => {
-            const artists = await getArtistsByArtistIds(album.artistIds)
+            try {
+                const artists = await getArtistsByArtistIds(album.artistIds)
+            } catch (e) {
+                alert("Couldn't get artists...")
+            }
             setArtists(artists)
         }
 

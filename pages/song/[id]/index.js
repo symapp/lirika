@@ -47,12 +47,15 @@ export default function SongPage() {
                     <h1>{song.name}</h1>
                     <h2>
                         {
+                            song.artists.length > 0 &&
                             song.artists.map((artist) => {
                                 return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
                                     {artist.name}
                                 </Link>
                             }).reduce((prev, curr) => [prev, ', ', curr])
-                        } - {
+                        }{
+                        song.artists.length > 0 && song.album.year && " - "
+                    }{
                         song.album.year
                     } - {
                         getFormattedTime(song.length)
