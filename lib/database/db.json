@@ -9,6 +9,16 @@
       ],
       "roles": [],
       "id": 1
+    },
+    {
+      "email": "asdfasdfasdf@dkdkdd",
+      "password": "$2a$10$KpRNm3iFJZHlOdKU5soChO0IzrO2cq5NLM79rfxLZWIZYnkrviTty",
+      "name": "fffffffff",
+      "likedSongIds": [
+        1,
+        2
+      ],
+      "id": 2
     }
   ],
   "songs": [
