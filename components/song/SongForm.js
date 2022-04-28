@@ -151,7 +151,7 @@ export default function SongForm({session, songToEdit, albumId}) {
         }
         setSong({
             ...song,
-            artistIds: result
+            [e.target.name]: result
         })
     }
 
@@ -244,12 +244,26 @@ export default function SongForm({session, songToEdit, albumId}) {
             </fieldset>
             <fieldset>
                 <label>Artists</label>
-                <select name="artists" onChange={handleChangeSelect} value={song.artistIds} multiple>
+                <select name="artistIds" onChange={handleChangeSelect} value={song.artistIds} multiple>
                     {
                         artists.map((artist) => {
                             return <option key={artist.id} value={artist.id}>{artist.name}</option>
                         })
                     }
+                </select>
+            </fieldset>
+            <fieldset>
+                <select name="genres" onChange={handleChangeSelect} value={song.genres} multiple>
+                    <option value="Pop">Pop</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Hip hop">Hip hop</option>
+                    <option value="Country">Country</option>
+                    <option value="Folk">Folk</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Classical">Classical</option>
+                    <option value="Blues">Blues</option>
+                    <option value="Electronic">Electronic</option>
+                    <option value="Metal">Metal</option>
                 </select>
             </fieldset>
             <fieldset>

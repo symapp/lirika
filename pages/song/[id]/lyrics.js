@@ -108,8 +108,8 @@ export default function LyricsPage({session}) {
                         return (
                             <div key={group.groupId} className={styles.group}>
                                 <select required name="groupName" className={group.groupId} value={group.groupName}
-                                        onChange={onChange}>
-                                    <option value="" selected disabled hidden>Tag</option>
+                                        onChange={onChange} defaultValue="">
+                                    <option value="" disabled hidden>Tag</option>
                                     <option value="Intro">Intro</option>
                                     <option value="Verse">Verse</option>
                                     <option value="Pre-chorus">Pre-chorus</option>

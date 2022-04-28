@@ -24,7 +24,10 @@
       "artistIds": [
         "1"
       ],
-      "genres": [],
+      "genres": [
+        "Rock",
+        "Hip hop"
+      ],
       "songLength": 302,
       "lyrics": [
         {
@@ -61,12 +64,17 @@
           "groupId": 7,
           "groupName": "Outro",
           "text": "dddd"
+        },
+        {
+          "groupId": 8,
+          "groupName": "Instrumental",
+          "text": ""
         }
       ],
       "filePath": "/songimages/31cdd7d9-9c43-4ba7-8f22-503fa0dabc18.jpeg",
       "userId": 1,
       "indexInAlbum": 1,
-      "lastEdit": "2022-04-28T18:50:11.268Z",
+      "lastEdit": "2022-04-28T19:18:31.897Z",
       "id": 1
     }
   ],

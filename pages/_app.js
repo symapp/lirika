@@ -15,9 +15,6 @@ export default function App({Component, pageProps}) {
     return (
         <>
             <Header>
-                <Link href="/" passHref>
-                    Home
-                </Link>
                 <Link href="/song" passHref>
                     Songs
                 </Link>

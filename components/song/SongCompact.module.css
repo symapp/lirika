@@ -4,6 +4,7 @@
     border-radius: 15px;
     align-items: center;
     display: flex;
+    gap: 1rem;
 }
 
 .song:hover {
@@ -21,7 +22,6 @@
 .songInfo {
     flex: 1 1 auto;
     display: flex;
-    margin: 0 1rem;
     justify-content: space-between;
 }
 
