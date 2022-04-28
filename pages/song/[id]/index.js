@@ -88,7 +88,7 @@ export default function SongPage({session}) {
             {
                 session.user && session.user.id === song.userId &&
                 <div className="buttonsLeft">
-                    <Link href={`/album/${song.id}/edit`} passHref>Edit</Link>
+                    <Link href={`/song/${song.id}/edit`} passHref>Edit</Link>
                     <button onClick={handleDelete}>Delete</button>
                 </div>
             }

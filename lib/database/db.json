@@ -16,7 +16,74 @@
       "id": 2
     }
   ],
-  "songs": [],
-  "albums": [],
+  "songs": [
+    {
+      "name": "1",
+      "likes": 0,
+      "albumId": 1,
+      "artistIds": [],
+      "genres": [],
+      "songLength": 1,
+      "lyrics": [],
+      "filePath": "/songimages/c746ec46-81cc-48d0-970c-b2f72d831885.jpeg",
+      "userId": 1,
+      "indexInAlbum": 1,
+      "lastEdit": "2022-04-28T11:24:19.715Z",
+      "id": 1
+    },
+    {
+      "name": "3",
+      "likes": 0,
+      "albumId": 1,
+      "artistIds": [],
+      "genres": [],
+      "songLength": 71,
+      "lyrics": [],
+      "filePath": "/songimages/c746ec46-81cc-48d0-970c-b2f72d831885.jpeg",
+      "userId": 1,
+      "indexInAlbum": 2,
+      "lastEdit": "2022-04-28T11:19:02.173Z",
+      "id": 2
+    },
+    {
+      "name": "1231",
+      "likes": 0,
+      "albumId": 1,
+      "artistIds": [],
+      "genres": [],
+      "songLength": 3481,
+      "lyrics": [],
+      "filePath": "/albumimages/67249399-e5b4-428f-8a8a-2a082810d568.png",
+      "userId": 1,
+      "indexInAlbum": 3,
+      "lastEdit": "2022-04-28T11:43:09.135Z",
+      "id": 3
+    },
+    {
+      "name": "3wf",
+      "likes": 0,
+      "albumId": 1,
+      "artistIds": [],
+      "genres": [],
+      "songLength": 308,
+      "lyrics": [],
+      "filePath": "/albumimages/67249399-e5b4-428f-8a8a-2a082810d568.png",
+      "userId": 1,
+      "indexInAlbum": 4,
+      "lastEdit": "2022-04-28T11:46:21.615Z",
+      "id": 4
+    }
+  ],
+  "albums": [
+    {
+      "name": "11111",
+      "year": "2000",
+      "filePath": "/albumimages/67249399-e5b4-428f-8a8a-2a082810d568.png",
+      "artistIds": [],
+      "userId": 1,
+      "lastEdit": "2022-04-28T09:27:23.316Z",
+      "id": 1
+    }
+  ],
   "artists": []
 }

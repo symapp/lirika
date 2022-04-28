@@ -13,7 +13,7 @@ import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 
 const defaultSong = {
-    name: "", likes: 0, albumId: null, artistIds: [], genres: [], songLength: 0, lyrics: []
+    name: "", likes: 0, albumId: null, artistIds: [], genres: [], songLength: "", lyrics: []
 }
 
 const validateSong = async (song, songToEdit, album) => {
@@ -76,6 +76,8 @@ export default function SongForm({session, songToEdit, albumId}) {
     const fileInput = useRef(null)
     const minutesRef = useRef(null)
     const secondsRef = useRef(null)
+    const [minutes, setMinutes] = useState(0)
+    const [seconds, setSeconds] = useState(0)
 
     useEffect(() => {
         if (songToEdit) {
@@ -84,11 +86,6 @@ export default function SongForm({session, songToEdit, albumId}) {
     }, [songToEdit])
 
     useEffect(() => {
-        setSong({
-            ...song,
-            albumId: albumId
-        })
-
         const getArtists = async () => {
             try {
                 const artists = await getAllArtists()
@@ -111,6 +108,25 @@ export default function SongForm({session, songToEdit, albumId}) {
 
         getAlbum()
     }, [])
+
+    useEffect(() => {
+        let length = 0
+
+        if (minutes !== "") {
+            length += parseInt(minutes) * 60
+        }
+
+        if (seconds !== "")  {
+            length += parseInt(seconds)
+
+        }
+
+        if (length === 0) return
+        setSong({
+            ...song,
+            songLength: length
+        })
+    }, [minutes, seconds])
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -139,21 +155,14 @@ export default function SongForm({session, songToEdit, albumId}) {
         })
     }
 
-    const handleChangeLength = (e) => {
-        const minutes = parseInt(minutesRef.current.value ? minutesRef.current.value : 0)
-        const seconds = parseInt(secondsRef.current.value)
-        const length = minutes * 60 + seconds
-
-        setSong({
-            ...song,
-            songLength: minutes * 60 + seconds
-        })
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
         setErrors(defaultSong)
+
+        // set album
+        song.albumId = albumId
 
         // upload image
         if (base64Image) {
@@ -226,9 +235,10 @@ export default function SongForm({session, songToEdit, albumId}) {
                 <label>Length</label>
                 <div>
                     <input ref={minutesRef} type="number" min="0" max="60" step="1" name="minutes"
-                           onChange={handleChangeLength} placeholder="minutes"/>
+                           onChange={() => setMinutes(minutesRef.current.value)} placeholder="minutes"
+                           value={Math.floor(song.songLength / 60)}/>
                     <input ref={secondsRef} type="number" min="1" max="59" step="1" name="seconds"
-                           onChange={handleChangeLength} placeholder="seconds"/>
+                           onChange={() => setSeconds(secondsRef.current.value)} placeholder="seconds" value={song.songLength % 60}/>
                 </div>
                 {errors.songLength && <>{errors.songLength}</>}
             </fieldset>
@@ -248,26 +258,38 @@ export default function SongForm({session, songToEdit, albumId}) {
                     type="file"
                     accept=".png,.jpg"
                     ref={fileInput}
-                    onChange={onFileInputChange}
-                />
-                {(base64Image || songToEdit) && <div className={styles.previewContainer}>
+                    onChange={onFileInputChange}/>
+
+                <div className={styles.previewContainer}>
                     <div className={styles.imageContainer}>
-                        {base64Image ? <Image
-                            src={base64Image}
-                            alt="image preview"
-                            layout="fill"
-                            objectFit="cover"
-                        /> : <Image
-                            src={songToEdit.filePath}
-                            alt="image preview"
-                            layout="fill"
-                            objectFit="cover"
-                        />
+                        {
+                            (base64Image || songToEdit)
+                                ? base64Image ?
+                                    <Image
+                                        src={base64Image}
+                                        alt="image preview"
+                                        layout="fill"
+                                        objectFit="cover"/>
+                                    :
+                                    <Image
+                                        src={songToEdit.filePath}
+                                        alt="image preview"
+                                        layout="fill"
+                                        objectFit="cover"/>
+                                :
+                                album &&
+                                <Image
+                                    src={album.filePath}
+                                    alt="image preview"
+                                    layout="fill"
+                                    objectFit="cover"/>
+
 
                         }
                     </div>
                     <p>Image Preview</p>
-                </div>}
+                </div>
+
 
                 {errors.image && <div>{errors.image}</div>}
             </fieldset>

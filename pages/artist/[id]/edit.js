@@ -26,7 +26,7 @@ export default function EditArtistPage({session}) {
 
     return artist && (
         <div>
-            <h1>Edit artist {artist.name}</h1>
+            <h1>Edit {artist.name}</h1>
             <ArtistForm session={session} artistToEdit={artist}/>
         </div>
     )

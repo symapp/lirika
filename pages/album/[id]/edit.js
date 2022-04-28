@@ -27,7 +27,7 @@ export default function EditAlbumPage({session}) {
 
     return album && (
         <div>
-            <h1>Edit artist {album.name}</h1>
+            <h1>Edit {album.name}</h1>
             <AlbumForm session={session} albumToEdit={album}/>
         </div>
     )
