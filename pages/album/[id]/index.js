@@ -35,7 +35,7 @@ export default function AlbumPage({session}) {
 
         let length = 0
         album.songs.forEach((song) => {
-            length += parseInt(song.length)
+            length += parseInt(song.songLength)
         })
         setAlbumLength(length)
     }, [album])

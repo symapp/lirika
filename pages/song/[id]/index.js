@@ -79,7 +79,7 @@ export default function SongPage({session}) {
                         } - {
                         song.album.year
                     } - {
-                        getFormattedTime(song.length)
+                        getFormattedTime(song.songLength)
                     }
                     </h2>
                 </div>

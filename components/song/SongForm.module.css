@@ -19,3 +19,9 @@
     justify-items: start;
     margin: 0.5rem;
 }
+
+.twoinputs > div{
+    width: 100%;
+    display: flex;
+    padding: 0 1rem;
+}

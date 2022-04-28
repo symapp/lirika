@@ -1,3 +1,7 @@
+.albumForm {
+    margin: 0 auto;
+}
+
 .imageContainer {
     width: 150px;
     height: 150px;
@@ -15,4 +19,3 @@
     justify-items: start;
     margin: 0.5rem;
 }
-

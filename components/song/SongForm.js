@@ -5,7 +5,7 @@ import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 
 const defaultSong = {
-    name: "", likes: 0, albumId: null, artistIds: [], genres: [], length: 0, lyrics: []
+    name: "", likes: 0, albumId: null, artistIds: [], genres: [], songLength: "", lyrics: []
 }
 
 const validateSong = async (song, songToEdit) => {
@@ -34,8 +34,9 @@ const validateSong = async (song, songToEdit) => {
         isValid = false
     }
 
-    if (song.length < 0) {
-        errors.length = "Length can't be has to be bigger than 0"
+    if (song.songLength < 1) {
+        errors.songLength = "Length has to be bigger than 0"
+        isValid = false
     }
 
     if (!songToEdit) {
@@ -60,6 +61,8 @@ export default function SongForm({session, songToEdit, albumId}) {
     const [artists, setArtists] = useState([])
     const [base64Image, setBase64Image] = useState("")
     const fileInput = useRef(null)
+    const minutesRef = useRef(null)
+    const secondsRef = useRef(null)
 
     useEffect(() => {
         if (songToEdit) {
@@ -99,7 +102,7 @@ export default function SongForm({session, songToEdit, albumId}) {
         let options = select && select.options;
         let opt;
 
-        for (let i=0, iLen=options.length; i<iLen; i++) {
+        for (let i = 0, iLen = options.length; i < iLen; i++) {
             opt = options[i];
 
             if (opt.selected) {
@@ -109,6 +112,16 @@ export default function SongForm({session, songToEdit, albumId}) {
         setSong({
             ...song,
             artistIds: result
+        })
+    }
+
+    const handleChangeLength = (e) => {
+        const minutes = parseInt(minutesRef.current.value)
+        const seconds = parseInt(secondsRef.current.value)
+
+        setSong({
+            ...song,
+            songLength: minutes * 60 + seconds
         })
     }
 
@@ -183,11 +196,16 @@ export default function SongForm({session, songToEdit, albumId}) {
                 <input type="text" name="name" onChange={handleChange} value={song.name}/>
                 {errors.name && <div>{errors.name}</div>}
             </fieldset>
-            <fieldset>
+
+            <fieldset className={styles.twoinputs}>
                 <label>Length</label>
-                <input type="number" min="0" max="3600" step="1" name="length" onChange={handleChange}
-                       value={song.length}/>
-                {errors.length && <div>{errors.length}</div>}
+                <div>
+                    <input ref={minutesRef} type="number" min="0" max="60" step="1" name="minutes"
+                           onChange={handleChangeLength} placeholder="minutes"/>
+                    <input ref={secondsRef} type="number" min="1" max="59" step="1" name="seconds"
+                           onChange={handleChangeLength} placeholder="seconds"/>
+                </div>
+                {errors.songLength && <>{errors.songLength}</>}
             </fieldset>
             <fieldset>
                 <label>Artists</label>
