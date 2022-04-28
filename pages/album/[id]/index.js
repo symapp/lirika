@@ -66,15 +66,16 @@ export default function AlbumPage({session}) {
                     <h1>{album.name}</h1>
                     <h2>
                         {
-                            album.artists.length > 0 &&
+                            album.artists.length > 0
+                            ?
                             album.artists.map((artist) => {
                                 return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
                                     {artist.name}
                                 </Link>
                             }).reduce((prev, curr) => [prev, ', ', curr])
-                        }{
-                        album.artists.length > 0 && album.year && " - "
-                    }{
+                            :
+                                <>Unknown</>
+                        } - {
                         album.year
                     } - {
                         getFormattedTime(albumLength)
@@ -90,6 +91,7 @@ export default function AlbumPage({session}) {
                     <div className="buttonsLeft">
                         <Link href={`/album/${album.id}/edit`} passHref>Edit</Link>
                         <button onClick={handleDelete}>Delete</button>
+                        <Link href={`/song/add/${album.id}`} passHref>Add Song</Link>
                     </div>
                 </div>
             }

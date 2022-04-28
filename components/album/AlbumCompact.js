@@ -42,17 +42,18 @@ export default function AlbumCompact({album}) {
                     </Link>
                     <h5>
                         {
-                            artists.length > 0 &&
-                            artists.map((artist) => {
-                                return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
-                                    {artist.name}
-                                </Link>
-                            }).reduce((prev, curr) => [prev, ', ', curr])
-                        }{
-                            artists.length > 0 && album.year && " - "
-                        }{
-                            album.year
-                        }
+                            artists.length > 0
+                                ?
+                                artists.map((artist) => {
+                                    return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                        {artist.name}
+                                    </Link>
+                                }).reduce((prev, curr) => [prev, ', ', curr])
+                                :
+                                <>Unknown</>
+                        } - {
+                        album.year
+                    }
                     </h5>
                 </div>
             </div>

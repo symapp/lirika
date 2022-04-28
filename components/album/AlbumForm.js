@@ -116,7 +116,7 @@ export default function AlbumForm({session, albumToEdit}) {
 
         // upload image
         if (base64Image) {
-            album.filePath = await uploadImage(base64Image, "albumImages")
+            album.filePath = await uploadImage(base64Image, "albumimages")
         }
 
         // trimming

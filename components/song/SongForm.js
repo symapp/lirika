@@ -5,7 +5,7 @@ import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 
 const defaultSong = {
-    name: "", likes: 0, albumId: 1, artistIds: [], genres: [], length: 0, lyrics: []
+    name: "", likes: 0, albumId: null, artistIds: [], genres: [], length: 0, lyrics: []
 }
 
 const validateSong = async (song, songToEdit) => {
@@ -52,7 +52,7 @@ const validateSong = async (song, songToEdit) => {
     return {errors, isValid}
 }
 
-export default function SongForm({session, songToEdit}) {
+export default function SongForm({session, songToEdit, albumId}) {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState(defaultSong)
@@ -65,6 +65,13 @@ export default function SongForm({session, songToEdit}) {
             setSong(songToEdit)
         }
     }, [songToEdit])
+    
+    useEffect(() => {
+        setSong({
+            ...song,
+            albumId: albumId
+        })
+    }, [albumId, song])
 
     const handleChange = (e) => {
         const name = e.target.name
