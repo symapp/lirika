@@ -11,6 +11,7 @@ export default function LyricsPage({session}) {
     const {id} = router.query
     const [song, setSong] = useState(null)
     const [lyrics, setLyrics] = useState([])
+    const [error, setError] = useState("")
 
     useEffect(() => {
         if (!id) return
@@ -63,7 +64,16 @@ export default function LyricsPage({session}) {
         setLyrics([...lyrics])
     }
 
-    const save = async () => {
+    const save = async (e) => {
+        e.preventDefault()
+
+        for (const lyric of lyrics) {
+            if (lyric.text.trim() === "" && lyrics.groupName !== "Instrumental") {
+                setError("aösldkfjöaksl")
+                return
+            }
+        }
+
         try {
             await updateSong(session.accessToken,
                 {
@@ -78,37 +88,40 @@ export default function LyricsPage({session}) {
 
     return lyrics && (
         <div className={styles.lyrics}>
-            <h3>Lyrics</h3>
-            {
-                lyrics.length > 0
-                    ?
-                    lyrics.map((group) => {
-                        return (
-                            <div key={group.groupId} className={styles.group}>
-                                <select required name="groupName" className={group.groupId} value={group.groupName} onChange={onChange}>
-                                    <option value="" selected disabled hidden>Tag</option>
-                                    <option value="Intro">Intro</option>
-                                    <option value="Verse">Verse</option>
-                                    <option value="Pre-chorus">Pre-chorus</option>
-                                    <option value="Chorus">Chorus</option>
-                                    <option value="Hook">Hook</option>
-                                    <option value="Bridge">Bridge</option>
-                                    <option value="Outro">Outro</option>
-                                </select>
-                                <textarea name="text" className={group.groupId} value={group.text} onChange={onChange}/>
-                            </div>
-                        )
-                    })
-                    :
-                    <h4>There are no lyrics</h4>
-            }
+            <form>
+                <h3>Lyrics</h3>
+                {
+                    lyrics.length > 0
+                        ?
+                        lyrics.map((group) => {
+                            return (
+                                <div key={group.groupId} className={styles.group}>
+                                    <select required name="groupName" className={group.groupId} value={group.groupName} onChange={onChange}>
+                                        <option value="" selected disabled hidden>Tag</option>
+                                        <option value="Intro">Intro</option>
+                                        <option value="Verse">Verse</option>
+                                        <option value="Pre-chorus">Pre-chorus</option>
+                                        <option value="Chorus">Chorus</option>
+                                        <option value="Hook">Hook</option>
+                                        <option value="Bridge">Bridge</option>
+                                        <option value="Outro">Outro</option>
+                                        <option value="Instrumental">Instrumental</option>
+                                    </select>
+                                    <textarea name="text" className={group.groupId} value={group.text} onChange={onChange}/>
+                                </div>
+                            )
+                        })
+                        :
+                        <h4>There are no lyrics</h4>
+                }
 
-            <div className={["buttonsLeft", styles.buttons].join(" ")}>
-                <button onClick={addLyrics}>Add part</button>
-                <button onClick={deleteLastPart}>Delete last part</button>
-                <button type="submit" onClick={save}>Save</button>
-                <button onClick={() => router.push(`/song/${id}`)}>Cancel</button>
-            </div>
+                <div className={["buttonsLeft", styles.buttons].join(" ")}>
+                    <button onClick={addLyrics}>Add part</button>
+                    <button onClick={deleteLastPart}>Delete last part</button>
+                    <button type="submit" onClick={save}>Save</button>
+                    <button onClick={() => router.push(`/song/${id}`)}>Cancel</button>
+                </div>
+            </form>
         </div>
     )
 }
