@@ -5,7 +5,8 @@
       "password": "$2a$10$RjaljzqCTPlev99ZFoOrX.5cg2R2JuWdNdqIDiF8MXYowb0DQ9qJa",
       "name": "cucu",
       "likedSongIds": [
-        2
+        1,
+        25
       ],
       "roles": [],
       "id": 1

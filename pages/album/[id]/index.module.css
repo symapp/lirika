@@ -41,15 +41,11 @@
 .album hr {
     border: 1px solid #e0b7ff;
     width: 100%;
+    fill: #e0b7ff;
     margin: 2rem auto 0;
 }
 
 .album a:hover {
     cursor: pointer;
     color: white;
-}
-
-.imageContainer:hover {
-    border-color: white;
-    cursor: pointer;
 }

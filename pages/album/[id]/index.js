@@ -35,7 +35,7 @@ export default function AlbumPage({session}) {
 
         let length = 0
         album.songs.forEach((song) => {
-            length += song.length
+            length += parseInt(song.length)
         })
         setAlbumLength(length)
     }, [album])
@@ -43,7 +43,7 @@ export default function AlbumPage({session}) {
     const handleDelete = async (e) => {
         e.preventDefault()
         try {
-            await deleteAlbum(session.accessToken, id)
+            await deleteAlbum(session, id)
             await router.push("/album")
         } catch (e) {
             alert("Couldn't delete album...")

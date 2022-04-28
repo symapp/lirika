@@ -1,7 +1,7 @@
 import styles from "./index.module.css"
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import {getSongById} from "@lib/api";
+import {deleteSong, getSongById} from "@lib/api";
 import Image from "next/image";
 import AlbumCompact from "@components/album/AlbumCompact";
 import Link from "next/link";
@@ -10,7 +10,7 @@ function getFormattedTime(time) {
     return Math.floor(time / 60) + ':' + (new Array(2 + 1).join("0") + (time % 60)).slice(-2)
 }
 
-export default function SongPage() {
+export default function SongPage({session}) {
     const router = useRouter()
     const {id} = router.query
     const [song, setSong] = useState(null)
@@ -29,17 +29,38 @@ export default function SongPage() {
         loadSong()
     }, [id, router])
 
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        try {
+            await deleteSong(session, id)
+            await router.push("/song")
+        } catch (e) {
+            alert("Couldn't delete song...")
+        }
+    }
+
     return song && (
         <div className={styles.song}>
             <header>
                 <Link href={`/album/${song.album.id}`} passHref>
                     <div className={styles.imageContainer}>
-                        <Image
-                            src={song.album.filePath}
-                            alt="cover"
-                            layout="fill"
-                            objectFit="cover"
-                        />
+                        {
+                            song.filePath
+                                ?
+                                <Image
+                                    src={song.filePath}
+                                    alt="cover"
+                                    layout="fill"
+                                    objectFit="cover"
+                                />
+                                :
+                                <Image
+                                    src={song.album.filePath}
+                                    alt="cover"
+                                    layout="fill"
+                                    objectFit="cover"
+                                />
+                        }
                     </div>
                 </Link>
                 <div className={styles.songInfo}>
@@ -64,6 +85,13 @@ export default function SongPage() {
                 </div>
             </header>
             <hr/>
+            {
+                session.user && session.user.id === song.userId &&
+                <div className="buttonsLeft">
+                    <Link href={`/album/${song.id}/edit`} passHref>Edit</Link>
+                    <button onClick={handleDelete}>Delete</button>
+                </div>
+            }
             <div className={styles.mainContent}>
                 <div className={styles.lyrics}>
                     <h3>Lyrics</h3>
