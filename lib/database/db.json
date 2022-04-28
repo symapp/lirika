@@ -21,7 +21,9 @@
       "name": "134",
       "likes": 0,
       "albumId": 1,
-      "artistIds": [],
+      "artistIds": [
+        "1"
+      ],
       "genres": [],
       "songLength": 302,
       "lyrics": [
@@ -53,18 +55,18 @@
         {
           "groupId": 6,
           "groupName": "Instrumental",
-          "text": "dd"
+          "text": ""
         },
         {
           "groupId": 7,
-          "groupName": "",
+          "groupName": "Outro",
           "text": "dddd"
         }
       ],
       "filePath": "/songimages/31cdd7d9-9c43-4ba7-8f22-503fa0dabc18.jpeg",
       "userId": 1,
       "indexInAlbum": 1,
-      "lastEdit": "2022-04-28T15:41:40.987Z",
+      "lastEdit": "2022-04-28T18:50:11.268Z",
       "id": 1
     }
   ],
@@ -73,11 +75,22 @@
       "name": "11111",
       "year": "2000",
       "filePath": "/albumimages/67249399-e5b4-428f-8a8a-2a082810d568.png",
-      "artistIds": [],
+      "artistIds": [
+        "1"
+      ],
       "userId": 1,
-      "lastEdit": "2022-04-28T09:27:23.316Z",
+      "lastEdit": "2022-04-28T18:50:01.885Z",
       "id": 1
     }
   ],
-  "artists": []
+  "artists": [
+    {
+      "name": "symap",
+      "image": "",
+      "filePath": "/artistimages/956a5703-d11e-4d54-9ee6-3c7d7e3c83ce.png",
+      "userId": 1,
+      "lastEdit": "2022-04-28T18:49:24.226Z",
+      "id": 1
+    }
+  ]
 }

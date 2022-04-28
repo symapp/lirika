@@ -84,7 +84,7 @@ export default function AlbumPage({session}) {
                     </h2>
                 </div>
             </header>
-            <hr/>
+
             {
                 session.user && session.user.id === album.userId &&
                 <div>

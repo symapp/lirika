@@ -43,7 +43,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
 
     return (
         <div className={styles.song}>
-            <Link href={`/album/${album ? album.id : song.album.id}`} passHref>
+            <Link href={`/song/${song.id}`} passHref>
                 <div className={styles.imageContainer}>
                     {
                         song.filePath

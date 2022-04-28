@@ -8,7 +8,6 @@
     box-sizing: border-box;
     font-weight: normal;
     overflow-x: hidden;
-
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -37,6 +36,11 @@ h1, h2, h3, h4, h5, h6, p {
     background: #e0b7ff;
 }
 
+/* Corner */
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
 html,
 body {
     font-family: 'Quicksand', sans-serif;
@@ -59,7 +63,6 @@ button, .error, .buttons a, .buttonsLeft a {
     font-weight: bolder !important;
     font-size: 1rem;
     padding: 0.5em 2rem;
-    margin: 0.5em;
     background-color: #e0b7ff;
     color: #1e1e1e !important;
     border: none;
@@ -73,12 +76,16 @@ button:hover, .buttons a:hover, .buttonsLeft a:hover {
 .buttons {
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    margin: 1rem 0;
+    gap: 1rem;
 }
 
 .buttonsLeft {
+    margin: 1rem 0;
     display: flex;
+    width: max-content;
     justify-content: flex-start;
+    gap: 1rem;
 }
 
 input, select {
@@ -116,6 +123,7 @@ form {
     width: 75%;
     padding: 1rem 4rem;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 fieldset {

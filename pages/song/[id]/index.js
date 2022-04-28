@@ -42,27 +42,14 @@ export default function SongPage({session}) {
     return song && (
         <div className={styles.song}>
             <header>
-                <Link href={`/album/${song.album.id}`} passHref>
-                    <div className={styles.imageContainer}>
-                        {
-                            song.filePath
-                                ?
-                                <Image
-                                    src={song.filePath}
-                                    alt="cover"
-                                    layout="fill"
-                                    objectFit="cover"
-                                />
-                                :
-                                <Image
-                                    src={song.album.filePath}
-                                    alt="cover"
-                                    layout="fill"
-                                    objectFit="cover"
-                                />
-                        }
-                    </div>
-                </Link>
+                <div className={styles.imageContainer}>
+                    <Image
+                        src={song.filePath}
+                        alt="cover"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>
                 <div className={styles.songInfo}>
                     <h6>Song</h6>
                     <h1>{song.name}</h1>
@@ -84,7 +71,7 @@ export default function SongPage({session}) {
                     </h2>
                 </div>
             </header>
-            <hr/>
+
             {
                 session.user && session.user.id === song.userId &&
                 <div className="buttonsLeft">
@@ -93,6 +80,7 @@ export default function SongPage({session}) {
                     <Link href={`/song/${song.id}/lyrics`} passHref>Edit Lyrics</Link>
                 </div>
             }
+
             <div className={styles.mainContent}>
                 <div className={styles.lyrics}>
                     <h3>Lyrics</h3>
@@ -100,7 +88,13 @@ export default function SongPage({session}) {
                         song.lyrics.length > 0 ?
                             song.lyrics.map((group) => {
                                 return <div key={group.id}>
-                                    <h4>{group.groupName}</h4>
+                                    {
+                                        group.groupName === "Instrumental"
+                                            ?
+                                            <h4 className={styles.instrumental}>♪</h4>
+                                            :
+                                            <h4>{group.groupName}</h4>
+                                    }
                                     <p>{group.text.split("\n").reduce((prev, curr) => [prev, <br/>, curr])}</p>
                                 </div>
                             })

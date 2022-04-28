@@ -1,16 +1,18 @@
+.lyrics {
+    width: 100%;
+}
 
 .lyrics h3 {
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .lyrics h4 {
     color: #FFFFFFA0;
-    margin: 1rem 0 0.25rem;
-}
-
-.buttons {
-    margin-top: 3rem;
+    margin: 1rem 0 2rem;
+    text-align: center;
 }
 
 .lyrics select:focus {
@@ -26,6 +28,7 @@
 .lyrics textarea {
     resize: vertical;
     width: 100%;
+    min-height: 4rem;
     grid-column: 2;
 
     border: 2px solid #C1ABD6;
@@ -49,4 +52,17 @@
     grid-template-columns: 10rem;
     gap: 1rem;
     margin: 1rem 0;
+}
+
+.imageContainer {
+    min-width: 200px;
+    min-height: 200px;
+    position: relative;
+    border: 2px solid #e0b7ff;
+    border-radius: 5px;
+}
+
+.song header {
+    display: flex;
+    align-items: flex-end;
 }

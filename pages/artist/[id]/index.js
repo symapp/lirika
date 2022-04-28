@@ -52,7 +52,7 @@ export default function ArtistPage({session}) {
                     <h1>{artist.name}</h1>
                 </div>
             </header>
-            <hr/>
+
             {
                 session.user && session.user.id === artist.userId &&
                 <div className={styles.options}>
