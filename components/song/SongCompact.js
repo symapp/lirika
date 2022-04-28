@@ -85,7 +85,7 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
                         }
                     </h5>
                 </div>
-                <p>{getFormattedTime(song.length)}</p>
+                <p>{getFormattedTime(song.songLength)}</p>
             </div>
             {session.user &&
                 <div className={styles.likeImageContainer} onClick={toggleLike}>

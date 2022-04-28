@@ -12,12 +12,6 @@ export default function App({Component, pageProps}) {
         session
     }
 
-    // document.querySelectorAll('h3, h4, h5, h6, p').forEach(function (elem) {
-    //     if (parseFloat(window.getComputedStyle(elem).width) === parseFloat(window.getComputedStyle(elem.parentElement).width)) {
-    //         elem.setAttribute('title', elem.textContent);
-    //     }
-    // });
-
     return (
         <>
             <Header>

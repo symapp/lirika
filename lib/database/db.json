@@ -4,10 +4,7 @@
       "email": "cu@cu",
       "password": "$2a$10$RjaljzqCTPlev99ZFoOrX.5cg2R2JuWdNdqIDiF8MXYowb0DQ9qJa",
       "name": "cucu",
-      "likedSongIds": [
-        1,
-        25
-      ],
+      "likedSongIds": [],
       "roles": [],
       "id": 1
     },
@@ -15,10 +12,7 @@
       "email": "asdfasdfasdf@dkdkdd",
       "password": "$2a$10$KpRNm3iFJZHlOdKU5soChO0IzrO2cq5NLM79rfxLZWIZYnkrviTty",
       "name": "fffffffff",
-      "likedSongIds": [
-        1,
-        2
-      ],
+      "likedSongIds": [],
       "id": 2
     }
   ],

@@ -1,14 +1,22 @@
 import styles from "./SongForm.module.css"
-import {createSong, getAllArtists, getAllSongs, getSongsByAlbumId, updateSong, uploadImage} from "@lib/api";
+import {
+    createSong,
+    getAlbumById,
+    getAllArtists,
+    getAllSongs,
+    getSongsByAlbumId,
+    updateSong,
+    uploadImage
+} from "@lib/api";
 import {useRouter} from "next/router";
 import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 
 const defaultSong = {
-    name: "", likes: 0, albumId: null, artistIds: [], genres: [], songLength: "", lyrics: []
+    name: "", likes: 0, albumId: null, artistIds: [], genres: [], songLength: 0, lyrics: []
 }
 
-const validateSong = async (song, songToEdit) => {
+const validateSong = async (song, songToEdit, album) => {
     const errors = {
         name: "", length: 0
     }
@@ -41,8 +49,12 @@ const validateSong = async (song, songToEdit) => {
 
     if (!songToEdit) {
         if (!song.filePath) {
-            errors.image = "You have to input an image"
-            isValid = false
+            if (!album) {
+                errors.image = "You have to input an image"
+                isValid = false
+            } else {
+                song.filePath = album.filePath
+            }
         }
     } else {
         if (!song.filePath) {
@@ -59,6 +71,7 @@ export default function SongForm({session, songToEdit, albumId}) {
     const [errors, setErrors] = useState(defaultSong)
     const [song, setSong] = useState(defaultSong)
     const [artists, setArtists] = useState([])
+    const [album, setAlbum] = useState()
     const [base64Image, setBase64Image] = useState("")
     const fileInput = useRef(null)
     const minutesRef = useRef(null)
@@ -86,6 +99,17 @@ export default function SongForm({session, songToEdit, albumId}) {
         }
 
         getArtists()
+
+        const getAlbum = async () => {
+            try {
+                const album = await getAlbumById(albumId)
+                setAlbum(album)
+            } catch (e) {
+                alert("Couldn't load album")
+            }
+        }
+
+        getAlbum()
     }, [])
 
     const handleChange = (e) => {
@@ -116,8 +140,9 @@ export default function SongForm({session, songToEdit, albumId}) {
     }
 
     const handleChangeLength = (e) => {
-        const minutes = parseInt(minutesRef.current.value)
+        const minutes = parseInt(minutesRef.current.value ? minutesRef.current.value : 0)
         const seconds = parseInt(secondsRef.current.value)
+        const length = minutes * 60 + seconds
 
         setSong({
             ...song,
@@ -139,7 +164,7 @@ export default function SongForm({session, songToEdit, albumId}) {
         song.name = song.name.trim()
 
         // validation
-        const result = await validateSong(song, songToEdit)
+        const result = await validateSong(song, songToEdit, album)
 
         if (!result.isValid) {
             setErrors(result.errors)
