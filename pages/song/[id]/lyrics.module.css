@@ -1,0 +1,52 @@
+
+.lyrics h3 {
+    color: white;
+    font-size: 2rem;
+}
+
+.lyrics h4 {
+    color: #FFFFFFA0;
+    margin: 1rem 0 0.25rem;
+}
+
+.buttons {
+    margin-top: 3rem;
+}
+
+.lyrics select:focus {
+    background-color: #121212;
+}
+
+.lyrics select {
+    width: 100%;
+    margin: 0;
+    height: min-content;
+}
+
+.lyrics textarea {
+    resize: vertical;
+    width: 100%;
+    grid-column: 2;
+
+    border: 2px solid #C1ABD6;
+    background-color: transparent;
+    color: #C1ABD6;
+    padding: 0.2rem;
+    border-radius: 5px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+.lyrics textarea:focus {
+    border: 2px solid white;
+    outline: none;
+    color: #e4c4ff;
+}
+
+.lyrics .group {
+    display: grid;
+    grid-template-columns: 10rem;
+    gap: 1rem;
+    margin: 1rem 0;
+}

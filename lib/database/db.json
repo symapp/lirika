@@ -18,60 +18,39 @@
   ],
   "songs": [
     {
-      "name": "1",
+      "name": "134",
       "likes": 0,
       "albumId": 1,
       "artistIds": [],
       "genres": [],
-      "songLength": 1,
-      "lyrics": [],
-      "filePath": "/songimages/c746ec46-81cc-48d0-970c-b2f72d831885.jpeg",
+      "songLength": 302,
+      "lyrics": [
+        {
+          "groupId": 1,
+          "groupName": "Verse",
+          "text": "asdfasdfasdfasasdfasdfasdsadfasdf\nasdföasd\ndasdfasdfasdfasdfsfasdfasdfasdfasdfasdfasdfasdfasdfasd\nasdf\n\nasödfjas\naölsdfj\nasdfs"
+        },
+        {
+          "groupId": 2,
+          "groupName": "Hook",
+          "text": "asdfasdfasdfsfasdfasdfasdfasdfasdfasdfs"
+        },
+        {
+          "groupId": 3,
+          "groupName": "Pre-chorus",
+          "text": "hi"
+        },
+        {
+          "groupId": 4,
+          "groupName": "",
+          "text": ""
+        }
+      ],
+      "filePath": "/songimages/31cdd7d9-9c43-4ba7-8f22-503fa0dabc18.jpeg",
       "userId": 1,
       "indexInAlbum": 1,
-      "lastEdit": "2022-04-28T11:24:19.715Z",
+      "lastEdit": "2022-04-28T14:39:35.243Z",
       "id": 1
-    },
-    {
-      "name": "3",
-      "likes": 0,
-      "albumId": 1,
-      "artistIds": [],
-      "genres": [],
-      "songLength": 71,
-      "lyrics": [],
-      "filePath": "/songimages/c746ec46-81cc-48d0-970c-b2f72d831885.jpeg",
-      "userId": 1,
-      "indexInAlbum": 2,
-      "lastEdit": "2022-04-28T11:19:02.173Z",
-      "id": 2
-    },
-    {
-      "name": "1231",
-      "likes": 0,
-      "albumId": 1,
-      "artistIds": [],
-      "genres": [],
-      "songLength": 3481,
-      "lyrics": [],
-      "filePath": "/albumimages/67249399-e5b4-428f-8a8a-2a082810d568.png",
-      "userId": 1,
-      "indexInAlbum": 3,
-      "lastEdit": "2022-04-28T11:43:09.135Z",
-      "id": 3
-    },
-    {
-      "name": "3wf",
-      "likes": 0,
-      "albumId": 1,
-      "artistIds": [],
-      "genres": [],
-      "songLength": 308,
-      "lyrics": [],
-      "filePath": "/albumimages/67249399-e5b4-428f-8a8a-2a082810d568.png",
-      "userId": 1,
-      "indexInAlbum": 4,
-      "lastEdit": "2022-04-28T11:46:21.615Z",
-      "id": 4
     }
   ],
   "albums": [

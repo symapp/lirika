@@ -90,6 +90,7 @@ export default function SongPage({session}) {
                 <div className="buttonsLeft">
                     <Link href={`/song/${song.id}/edit`} passHref>Edit</Link>
                     <button onClick={handleDelete}>Delete</button>
+                    <Link href={`/song/${song.id}/lyrics`} passHref>Edit Lyrics</Link>
                 </div>
             }
             <div className={styles.mainContent}>
@@ -100,18 +101,11 @@ export default function SongPage({session}) {
                             song.lyrics.map((group) => {
                                 return <div key={group.id}>
                                     <h4>{group.groupName}</h4>
-                                    {
-                                        group.content.map((line) => {
-                                            return <p key={line.id}>
-                                                {line.text}
-                                                <br/>
-                                            </p>
-                                        })
-                                    }
+                                    <p>{group.text.split("\n").reduce((prev, curr) => [prev, <br/>, curr])}</p>
                                 </div>
                             })
                             :
-                            <h4>There are no lyrics avalable</h4>
+                            <h4>There are no lyrics available</h4>
                     }
                 </div>
                 <div className={styles.otherInfo}>

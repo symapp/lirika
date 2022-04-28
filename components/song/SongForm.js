@@ -13,7 +13,7 @@ import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 
 const defaultSong = {
-    name: "", likes: 0, albumId: null, artistIds: [], genres: [], songLength: "", lyrics: []
+    name: "", likes: 0, albumId: null, artistIds: [], genres: [], songLength: [], lyrics: ""
 }
 
 const validateSong = async (song, songToEdit, album) => {
