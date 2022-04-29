@@ -11,8 +11,8 @@
 }
 
 .imageContainer {
-    min-width: 100px;
-    height: 100px;
+    min-width: 18vw;
+    height: 18vw;
     position: relative;
     border: 1px solid #e0b7ff;
     border-radius: 5px;
@@ -27,11 +27,12 @@
 }
 
 .albumInfo h3 {
-    font-size: 2rem;
+    font-size: 6vw;
     color: #e0b7ff !important;
 }
 
 .albumInfo h5, .albumInfo a {
+    font-size: 4vw;
     color: #e0b7ffa0;
 }
 
@@ -43,4 +44,20 @@
 .imageContainer:hover {
     border-color: white;
     cursor: pointer;
+}
+
+
+@media (min-width: 550px) {
+    .imageContainer {
+        min-width: 100px;
+        height: 100px;
+    }
+
+    .albumInfo h3 {
+        font-size: 2rem;
+    }
+
+    .albumInfo h5, .albumInfo a {
+        font-size: 0.9rem;
+    }
 }

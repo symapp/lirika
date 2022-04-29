@@ -3,11 +3,6 @@
     row-gap: 1rem;
 }
 
-.songList .songContainer {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-}
-
 .songList h6 {
     font-size: 0.8rem;
     text-align: center;
@@ -18,4 +13,20 @@
 
 .numbered {
     padding-left: 0;
+}
+
+.indexes {
+    display: none;
+}
+
+
+@media (min-width: 650px) {
+    .songList .songContainer {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+    }
+
+    .indexes {
+        display: inline-block;
+    }
 }

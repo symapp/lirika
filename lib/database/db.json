@@ -14,6 +14,13 @@
       "name": "fffffffff",
       "likedSongIds": [],
       "id": 2
+    },
+    {
+      "email": "new@new",
+      "password": "$2a$10$zS4lQJKa/EZL0K.bq1teeOlV1NgmmBr4U65IXAHxKVPvo1cu83CPu",
+      "name": "new",
+      "likedSongIds": [],
+      "id": 3
     }
   ],
   "songs": [
@@ -28,11 +35,11 @@
         "Alternative/Indie"
       ],
       "songLength": 221,
-      "lyrics": "",
+      "lyrics": [],
       "filePath": "/albumimages/4ffa8591-7dc0-4a99-80bb-6e449398f121.jpeg",
       "userId": 1,
       "indexInAlbum": 1,
-      "lastEdit": "2022-04-28T19:40:40.327Z",
+      "lastEdit": "2022-04-29T07:57:17.301Z",
       "id": 1
     },
     {

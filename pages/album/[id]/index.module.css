@@ -7,15 +7,22 @@
     font-weight: 600;
     padding: 0;
     text-align: left;
+    line-height: 3rem;
+    white-space: pre-wrap;
+    margin: 0.5rem 0;
+    overflow-y: hidden;
 }
 
 .album h2, .album a, .album h4 {
     color: #C1ABD6A0;
+    white-space: pre-wrap;
+    overflow-y: hidden;
 }
 
 .imageContainer {
-    min-width: 200px;
-    min-height: 200px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     position: relative;
     border: 2px solid #e0b7ff;
     border-radius: 5px;
@@ -23,13 +30,13 @@
 
 .album header {
     display: flex;
-    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .albumInfo {
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
     margin-bottom: 1rem;
     width: 100%;
 }
@@ -48,4 +55,40 @@
 .album a:hover {
     cursor: pointer;
     color: white;
+}
+
+@media (min-width: 550px) {
+    .imageContainer {
+        width: 200px;
+        min-width: 200px;
+        height: 200px;
+        padding: 0;
+    }
+
+    .album header {
+        flex-wrap: nowrap;
+        justify-items: center;
+    }
+
+    .album h1 {
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .albumInfo {
+        justify-content: center;
+    }
+
+    .album h2, .album a {
+        white-space: nowrap;
+    }
+
+}
+
+@media (min-width: 960px) {
+    .mainContent {
+        display: grid;
+        grid-gap: 3rem;
+        grid-template-columns: 1.5fr 1fr;
+    }
 }

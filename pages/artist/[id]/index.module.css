@@ -4,12 +4,18 @@
     font-size: 5rem;
     padding: 0;
     text-align: left;
+    line-height: 5rem;
+    white-space: pre-wrap;
+    margin: 0.5rem 0;
+    overflow-y: hidden;
 }
 
 .artist h2 {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #C1ABD6A0;
+    white-space: pre-wrap;
+    overflow-y: hidden;
 }
 
 .mainContent .title {
@@ -20,16 +26,17 @@
 }
 
 .imageContainer {
-    min-width: 200px;
-    min-height: 200px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     position: relative;
-    border-radius: 100px;
     border: 2px solid #e0b7ff;
+    border-radius: 5px;
 }
 
 .artist header {
     display: flex;
-    align-items: flex-end;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -41,4 +48,37 @@
 
 .artist h4 {
     color: #C1ABD6A0;
+}
+
+
+@media (min-width: 550px) {
+    .imageContainer {
+        width: 200px;
+        min-width: 200px;
+        height: 200px;
+        padding: 0;
+    }
+
+    .artist header {
+        flex-wrap: nowrap;
+        justify-items: center;
+    }
+
+    .artist h1 {
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .mainContent {
+        justify-content: center;
+    }
+
+    .artist h2, .artist a {
+        white-space: nowrap;
+    }
+
+    .artistInfo {
+        align-content: center;
+        margin: auto 0;
+    }
 }

@@ -1,5 +1,12 @@
 .albumList {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+    gap: 1rem;
 }
+
+
+@media (min-width: 960px) {
+    .albumList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+

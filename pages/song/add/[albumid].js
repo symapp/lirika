@@ -6,8 +6,8 @@ import SongForm from "@components/song/SongForm";
 import {useRedirectToLogin} from "@lib/session";
 
 export default function AddSongToAlbumPage({session}) {
-
     useRedirectToLogin(session)
+
     const router = useRouter()
     const {albumid: albumId} = router.query
     const [album, setAlbum] = useState(null)

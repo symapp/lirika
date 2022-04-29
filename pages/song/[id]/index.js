@@ -95,6 +95,7 @@ export default function SongPage({session}) {
                                             :
                                             <h4>{group.groupName}</h4>
                                     }
+                                    {/* eslint-disable-next-line react/jsx-key */}
                                     <p>{group.text.split("\n").reduce((prev, curr) => [prev, <br/>, curr])}</p>
                                 </div>
                             })

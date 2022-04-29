@@ -7,17 +7,24 @@
     font-weight: 600;
     padding: 0;
     text-align: left;
+    line-height: 3rem;
+    white-space: pre-wrap;
+    margin: 0.5rem 0;
+    overflow-y: hidden;
 }
 
 .song h2, .song a {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #C1ABD6A0;
+    white-space: pre-wrap;
+    overflow-y: hidden;
 }
 
 .imageContainer {
-    min-width: 200px;
-    min-height: 200px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     position: relative;
     border: 2px solid #e0b7ff;
     border-radius: 5px;
@@ -25,17 +32,16 @@
 
 .song header {
     display: flex;
-    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .songInfo {
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
     margin-bottom: 1rem;
     width: 100%;
 }
-
 
 .mainContent {
     display: grid;
@@ -96,6 +102,34 @@
 
 .instrumental {
     font-size: 1.2rem;
+}
+
+@media (min-width: 550px) {
+    .imageContainer {
+        width: 200px;
+        min-width: 200px;
+        height: 200px;
+        padding: 0;
+    }
+
+    .song header {
+        flex-wrap: nowrap;
+        justify-items: center;
+    }
+
+    .song h1 {
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .songInfo {
+        justify-content: center;
+    }
+
+    .song h2, .song a {
+        white-space: nowrap;
+    }
+
 }
 
 @media (min-width: 960px) {

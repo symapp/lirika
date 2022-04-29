@@ -120,9 +120,7 @@ label {
 
 form {
     background-color: #1e1e1e;
-    min-width: 300px;
-    width: 75%;
-    padding: 1rem 4rem;
+    width: 100%;
     border-radius: 10px;
     margin: 0 auto;
 }
@@ -157,5 +155,11 @@ li {
         flex-flow: column;
         width: 960px;
         margin: 0 auto;
+    }
+
+    .form {
+        min-width: 300px;
+        width: 75%;
+        padding: 1rem 4rem;
     }
 }

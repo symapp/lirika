@@ -40,7 +40,7 @@ export default function SongList({songs, session, album, numbers}) {
                 songs.sort((a, b) => a.indexInAlbum - b.indexInAlbum).map((song) => {
                     return (
                         <div key={song.id} className={numbers && styles.songContainer}>
-                            {numbers && <h6>{song.indexInAlbum}</h6>}
+                            {numbers && <h6 className={styles.indexes}>{song.indexInAlbum}</h6>}
                             <SongCompact song={song} album={album} session={session} likedSongs={likedSongs}
                                          setLikedSongs={updateLikedSongs}/>
                         </div>

@@ -1,5 +1,6 @@
 .songForm {
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
 }
 
 .imageContainer {
@@ -21,7 +22,14 @@
 }
 
 .twoinputs > div{
-    width: 100%;
+    width: 90%;
     display: flex;
     padding: 0 1rem;
+}
+
+
+@media (min-width: 960px) {
+    .songForm {
+        margin: 0 auto;
+    }
 }
