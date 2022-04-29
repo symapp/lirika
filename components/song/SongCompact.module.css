@@ -29,10 +29,11 @@
     margin: auto 0;
     text-align: right;
     font-family: 'Azeret Mono', monospace;
+    display: none;
 }
 
 .mainSongInfo {
-    width: 400px;
+    max-width: 400px;
     margin: auto 0;
 }
 
@@ -41,15 +42,9 @@
     height: 20px;
     position: relative;
     margin: auto 0.5rem;
+    display: none;
 }
 
-.unliked {
-    display: none !important;
-}
-
-.song:hover .unliked{
-    display: block !important;
-}
 
 .song h3:hover, .song a:hover {
     cursor: pointer;
@@ -64,4 +59,26 @@
 .song a, .song h5 {
     font-size: 0.75rem;
     color: #E0B7FFA9;
+}
+
+@media (min-width: 960px) {
+
+}
+
+@media (min-width: 650px) {
+    .likeImageContainer {
+        display: inline-block;
+    }
+
+    .song:hover .unliked, .song:active .unliked{
+        display: block !important;
+    }
+
+    .unliked {
+        display: none !important;
+    }
+
+    .songInfo p {
+        display: inline-block;
+    }
 }
