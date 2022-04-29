@@ -19,6 +19,24 @@
     display: none;
 }
 
+.searchBar {
+    display: grid;
+    gap: 1rem;
+}
+
+.searchBar select {
+    width: 10rem;
+    margin: 0;
+}
+
+.searchBar input {
+    width: 100%;
+    margin: 0;
+}
+
+.searchBar select:focus {
+    background-color: #1e1e1e;
+}
 
 @media (min-width: 650px) {
     .songList .songContainer {
@@ -28,5 +46,18 @@
 
     .indexes {
         display: inline-block;
+    }
+
+    .searchBar {
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+
+    .searchBar select {
+        grid-column: 2;
+    }
+
+    .searchBar input {
+        grid-row: 1;
     }
 }

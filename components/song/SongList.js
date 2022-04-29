@@ -3,8 +3,11 @@ import SongCompact from "@components/song/SongCompact";
 import {useEffect, useState} from "react";
 import {getLikedSongIdsByUserId, setLikedSongsTo} from "@lib/api";
 
-export default function SongList({songs, session, album, numbers}) {
+export default function SongList({songs, session, album, numbers, search}) {
     const [likedSongs, setLikedSongs] = useState([])
+    const [query, setQuery] = useState("")
+    const [searchParam, setSearchParam] = useState("")
+    const [shownSongs, setShownSongs] = useState([])
 
     useEffect(() => {
         if (!session.user) return
@@ -23,6 +26,11 @@ export default function SongList({songs, session, album, numbers}) {
     }, [session])
 
 
+    useEffect(() => {
+        setShownSongs(songs)
+    }, [songs])
+
+
     const updateLikedSongs = async (newLikedSongs) => {
         setLikedSongs(newLikedSongs)
 
@@ -33,11 +41,56 @@ export default function SongList({songs, session, album, numbers}) {
         }
     }
 
+    const onChange = (e) => {
+        const value = e.target.value
+        setQuery(value)
+    }
 
-    return songs && (
+    const onChangeSelect = (e) => {
+        const value = e.target.value
+        setSearchParam(value)
+    }
+
+
+    useEffect(() => {
+        const newSongs = songs.filter((song) => {
+            if (!search || (query.length === 0 && query === "liked")) {
+                return true
+            } else if (searchParam === "") {
+                return song.name.toLowerCase().includes(query.toLowerCase().trim()) || song.album.name.toLowerCase().includes(query.toLowerCase().trim())
+            } else if (searchParam === "song") {
+                return song.name.toLowerCase().includes(query.toLowerCase().trim())
+            } else if (searchParam === "album") {
+                return song.album.name.toLowerCase().includes(query.toLowerCase().trim())
+            } else if (searchParam === "liked") {
+                return likedSongs.includes(song.id)
+            }
+            return true
+        })
+
+        setShownSongs([...newSongs])
+    }, [query, searchParam])
+
+
+    return shownSongs && (
         <div className={[styles.songList, numbers && styles.numbered].join(" ")}>
+                {
+                search && <div className={styles.searchBar}>
+                        <select value={searchParam} onChange={onChangeSelect}>
+                            <option value="">All</option>
+                            <option value="song">Song</option>
+                            <option value="album">Album</option>
+                            {
+                                session.user &&
+                                <option value="liked">Liked</option>
+                            }
+                        </select>
+                    <input value={query} onChange={onChange} placeholder="search word"/>
+                </div>
+            }
+
             {
-                songs.sort((a, b) => a.indexInAlbum - b.indexInAlbum).map((song) => {
+                shownSongs.sort((a, b) => a.lastEdit - b.lastEdit).map((song) => {
                     return (
                         <div key={song.id} className={numbers && styles.songContainer}>
                             {numbers && <h6 className={styles.indexes}>{song.indexInAlbum}</h6>}

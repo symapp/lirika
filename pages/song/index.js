@@ -22,7 +22,7 @@ export default function SongsPage({session}) {
     return (
         <div>
             <h1>Songs</h1>
-            <SongList songs={songs} session={session} smaller={true}/>
+            <SongList songs={songs} session={session} smaller={true} search={true}/>
             <div className="buttons">
                 {session.user && <Link href="/album" passHref>You can only add songs to albums.</Link>}
             </div>
