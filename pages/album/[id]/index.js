@@ -62,7 +62,7 @@ export default function AlbumPage({session}) {
                     />
                 </div>
                 <div className={styles.albumInfo}>
-                    <h4>Album</h4>
+                    <h4>{album.songs.length > 1 ? "Album" : album.songs.length === 1 ? "Single" : ""}</h4>
                     <h1>{album.name}</h1>
                     <h2>
                         {

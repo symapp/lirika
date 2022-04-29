@@ -264,6 +264,7 @@ export default function SongForm({session, songToEdit, albumId}) {
                     <option value="Blues">Blues</option>
                     <option value="Electronic">Electronic</option>
                     <option value="Metal">Metal</option>
+                    <option value="Alternative/Indie">Alternative/Indie</option>
                 </select>
             </fieldset>
             <fieldset>

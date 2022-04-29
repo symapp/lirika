@@ -18,86 +18,276 @@
   ],
   "songs": [
     {
-      "name": "134",
+      "name": "Glide - cover",
       "likes": 0,
       "albumId": 1,
       "artistIds": [
         "1"
       ],
       "genres": [
-        "Rock",
-        "Hip hop"
+        "Alternative/Indie"
       ],
-      "songLength": 302,
+      "songLength": 221,
+      "lyrics": "",
+      "filePath": "/albumimages/4ffa8591-7dc0-4a99-80bb-6e449398f121.jpeg",
+      "userId": 1,
+      "indexInAlbum": 1,
+      "lastEdit": "2022-04-28T19:40:40.327Z",
+      "id": 1
+    },
+    {
+      "name": "Texas Reznikoff",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 132,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 1,
+      "lastEdit": "2022-04-28T19:44:19.995Z",
+      "id": 2
+    },
+    {
+      "name": "Townie",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 205,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 2,
+      "lastEdit": "2022-04-28T19:45:09.619Z",
+      "id": 3
+    },
+    {
+      "name": "First Love / Late Spring",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 278,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 3,
+      "lastEdit": "2022-04-28T19:45:56.836Z",
+      "id": 4
+    },
+    {
+      "name": "Francis Forever",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 149,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 4,
+      "lastEdit": "2022-04-28T19:46:33.237Z",
+      "id": 5
+    },
+    {
+      "name": "I Don't Smoke",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 198,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 5,
+      "lastEdit": "2022-04-28T19:47:35.029Z",
+      "id": 6
+    },
+    {
+      "name": "Jobless Monday",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 125,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 6,
+      "lastEdit": "2022-04-29T04:22:58.977Z",
+      "id": 7
+    },
+    {
+      "name": "Drunk Walk Home",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 151,
       "lyrics": [
         {
           "groupId": 1,
           "groupName": "Verse",
-          "text": "asdfasdfasdfasasdfasdfasdsadfasdf\nasdföasd\ndasdfasdfasdfasdfsfasdfasdfasdfasdfasdfasdfasdfasdfasd\nasdf\n\nasödfjas\naölsdfj\nasdfs"
+          "text": "I will retire to the salton sea\nAt the age of 23\nFor I'm starting to learn I may never be free\nBut though I may never be free\nFuck you and your money\nI'm tired of your money"
         },
         {
           "groupId": 2,
-          "groupName": "Hook",
-          "text": "asdfasdfasdfsfasdfasdfasdfasdfasdfasdfs"
-        },
-        {
-          "groupId": 3,
-          "groupName": "Pre-chorus",
-          "text": "hi"
-        },
-        {
-          "groupId": 4,
-          "groupName": "Pre-chorus",
-          "text": "fjf"
-        },
-        {
-          "groupId": 5,
-          "groupName": "Pre-chorus",
-          "text": "ddd"
-        },
-        {
-          "groupId": 6,
           "groupName": "Instrumental",
           "text": ""
         },
         {
-          "groupId": 7,
-          "groupName": "Outro",
-          "text": "dddd"
+          "groupId": 3,
+          "groupName": "Verse",
+          "text": "And I sit on the curb 'cause it's the prettiest night\nWith no one else in sight\nYou know I wore this dress for you\nThese killer heels for you\nSee the dark it moves\nWith every breath of the breeze"
         },
         {
-          "groupId": 8,
+          "groupId": 4,
           "groupName": "Instrumental",
           "text": ""
         }
       ],
-      "filePath": "/songimages/31cdd7d9-9c43-4ba7-8f22-503fa0dabc18.jpeg",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
       "userId": 1,
-      "indexInAlbum": 1,
-      "lastEdit": "2022-04-28T19:18:31.897Z",
-      "id": 1
+      "indexInAlbum": 7,
+      "lastEdit": "2022-04-29T04:25:56.606Z",
+      "id": 8
+    },
+    {
+      "name": "I Will",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 174,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 8,
+      "lastEdit": "2022-04-29T04:26:31.994Z",
+      "id": 9
+    },
+    {
+      "name": "Carry Me Out",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 233,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 9,
+      "lastEdit": "2022-04-29T04:27:04.192Z",
+      "id": 10
+    },
+    {
+      "name": "Last Words of a Shooting Star",
+      "likes": 0,
+      "albumId": 2,
+      "artistIds": [
+        "1"
+      ],
+      "genres": [
+        "Rock",
+        "Folk",
+        "Alternative/Indie"
+      ],
+      "songLength": 164,
+      "lyrics": "",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "userId": 1,
+      "indexInAlbum": 10,
+      "lastEdit": "2022-04-29T04:27:36.976Z",
+      "id": 11
     }
   ],
   "albums": [
     {
-      "name": "11111",
-      "year": "2000",
-      "filePath": "/albumimages/67249399-e5b4-428f-8a8a-2a082810d568.png",
+      "name": "Glide (cover)",
+      "year": "2022",
+      "filePath": "/albumimages/4ffa8591-7dc0-4a99-80bb-6e449398f121.jpeg",
       "artistIds": [
         "1"
       ],
       "userId": 1,
-      "lastEdit": "2022-04-28T18:50:01.885Z",
+      "lastEdit": "2022-04-28T19:37:47.499Z",
       "id": 1
+    },
+    {
+      "name": "Bury Me At Makeout Creek",
+      "year": "2014",
+      "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
+      "artistIds": [
+        "1"
+      ],
+      "userId": 1,
+      "lastEdit": "2022-04-28T19:43:23.317Z",
+      "id": 2
     }
   ],
   "artists": [
     {
-      "name": "symap",
+      "name": "Mitski",
       "image": "",
-      "filePath": "/artistimages/956a5703-d11e-4d54-9ee6-3c7d7e3c83ce.png",
+      "filePath": "/artistimages/eacccb26-4da6-4edf-a34e-e5e508857aa5.jpeg",
       "userId": 1,
-      "lastEdit": "2022-04-28T18:49:24.226Z",
+      "lastEdit": "2022-04-28T19:36:22.192Z",
       "id": 1
     }
   ]
