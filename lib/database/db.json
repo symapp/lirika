@@ -4,7 +4,9 @@
       "email": "cu@cu",
       "password": "$2a$10$RjaljzqCTPlev99ZFoOrX.5cg2R2JuWdNdqIDiF8MXYowb0DQ9qJa",
       "name": "cucu",
-      "likedSongIds": [],
+      "likedSongIds": [
+        8
+      ],
       "roles": [],
       "id": 1
     },
@@ -200,7 +202,7 @@
       "filePath": "/albumimages/70846520-dbe7-4db5-9844-b89436f8acf1.jpeg",
       "userId": 1,
       "indexInAlbum": 7,
-      "lastEdit": "2022-04-29T04:25:56.606Z",
+      "lastEdit": "2022-04-29T11:43:39.420Z",
       "id": 8
     },
     {
