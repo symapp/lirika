@@ -109,9 +109,9 @@ export default function SongPage({session}) {
                             <h3>Genres</h3>
                             <div className={styles.genres}>
                                 {song.genres.map((genre) => {
-                                    return <li key={genre}>
+                                    return <div key={genre}>
                                         {genre}
-                                    </li>
+                                    </div>
                                 })}
                             </div>
                         </>

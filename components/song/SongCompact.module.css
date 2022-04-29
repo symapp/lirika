@@ -26,7 +26,7 @@
 }
 
 .songInfo p {
-    margin: auto 0;
+    margin: auto 1rem auto 1rem;
     text-align: right;
     font-family: 'Azeret Mono', monospace;
     display: none;
@@ -59,10 +59,6 @@
 .song a, .song h5 {
     font-size: 0.75rem;
     color: #E0B7FFA9;
-}
-
-@media (min-width: 960px) {
-
 }
 
 @media (min-width: 650px) {

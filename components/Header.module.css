@@ -1,10 +1,35 @@
-.header {
+.main, .header {
     position: sticky;
     top: 0;
     width: 100%;
     display: flex;
+    flex-direction: column;
+}
+
+.imageContainer {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.imageContainer * {
+    color: #dfb6fe !important;
+}
+
+.topMenu {
+    padding: 0.3rem 1rem;
     background-color: #1e1e1e;
-    z-index: 99
+    z-index: 90;
+}
+
+.header {
+    background-color: #1e1e1e;
+    border-top: 2px solid #e0b7ffa1;
+    z-index: 80;
+}
+
+.hidden {
+    display: none;
 }
 
 .header > a, .header > div {
@@ -15,8 +40,32 @@
     list-style: none;
 }
 
-.header > a:hover, .header > div:hover {
+.header > a:active, .header > div:active {
     text-decoration: none;
     background-color: #EFE9EF0C;
     color: white;
+    padding: 1rem;
+}
+
+@media (min-width: 960px) {
+    .topMenu {
+        display: none;
+    }
+
+    .hidden {
+        display: inline-block;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        border: none;
+    }
+
+    .header > a:hover, .header > div:hover {
+        text-decoration: none;
+        background-color: #EFE9EF0C;
+        color: white;
+        padding: 1rem;
+    }
 }
