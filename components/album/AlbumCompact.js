@@ -1,5 +1,5 @@
 import styles from "./AlbumCompact.module.css"
-import {getArtistsByArtistIds, getSongsByAlbumId} from "@lib/api";
+import {getArtistsByArtistIds} from "@lib/api";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";

@@ -22,7 +22,11 @@ export default function SongPage({session}) {
                 const song = await getSongById(id)
                 setSong(song)
             } catch (e) {
-                if (e.status === 404) router.push("/404")
+                if (e.status === 404) {
+                    await router.push("/404")
+                    return
+                }
+                alert("Couldn't load song...")
             }
         }
 

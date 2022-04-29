@@ -1,7 +1,7 @@
 import styles from "./signup.module.css"
 import {useRouter} from "next/router";
 import {useState} from "react";
-import {getAllUsers, login, register} from "@lib/api";
+import {getAllUsers, register} from "@lib/api";
 import {useRedirectToHome} from "@lib/session";
 
 const defaultUser = {

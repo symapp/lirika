@@ -19,7 +19,11 @@ export default function ArtistPage({session}) {
                 const artist = await getArtistById(id)
                 setArtist(artist)
             } catch (e) {
-                alert("Couldn't load artist...")
+                if (e.status === 404) {
+                    await router.push("/404")
+                    return
+                }
+                alert("Couldn't load Artist")
             }
         }
 
@@ -68,14 +72,14 @@ export default function ArtistPage({session}) {
                     artist.songs.length > 0 &&
                     <div className={styles.songs}>
                         <h3 className={styles.title}>Songs</h3>
-                        <SongList songs={artist.songs} session={session} />
+                        <SongList songs={artist.songs} session={session}/>
                     </div>
                 }
                 {
                     artist.albums.length > 0 &&
                     <div className={styles.albums}>
                         <h3 className={styles.title}>Albums</h3>
-                        <AlbumList albums={artist.albums} />
+                        <AlbumList albums={artist.albums}/>
                     </div>
                 }
             </div>

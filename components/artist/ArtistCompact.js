@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ArtistCompact({artist}) {
-    return (
-        <Link href={`/artist/${artist.id}`} passHref>
+    return (<Link href={`/artist/${artist.id}`} passHref>
             <div className={styles.artist}>
                 <div className={styles.imageContainer}>
                     <Image
@@ -17,6 +16,5 @@ export default function ArtistCompact({artist}) {
 
                 <h2>{artist.name}</h2>
             </div>
-        </Link>
-    )
+        </Link>)
 }

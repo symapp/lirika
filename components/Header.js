@@ -21,7 +21,8 @@ export default function Header({children}) {
                     />
                 </div>
             </div>
-            <header className={[styles.header, !showMenu ? styles.hidden : null].join(" ")} onClick={() => setShowMenu(false)}>
+            <header className={[styles.header, !showMenu ? styles.hidden : null].join(" ")}
+                    onClick={() => setShowMenu(false)}>
                 {children}
             </header>
         </div>

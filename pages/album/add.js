@@ -8,7 +8,7 @@ export default function AddAlbumPage({session}) {
     return session.user && (
         <div className={styles.addAlbum}>
             <h1>Add new album</h1>
-            <AlbumForm session={session} />
+            <AlbumForm session={session}/>
         </div>
     )
 }

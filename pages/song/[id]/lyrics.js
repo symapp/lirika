@@ -22,7 +22,11 @@ export default function LyricsPage({session}) {
                 setSong(song)
                 setLyrics(song.lyrics)
             } catch (e) {
-                router.push("/404")
+                if (e.status === 404) {
+                    await router.push("/404")
+                    return
+                }
+                alert("Couldn't load song...")
             }
         }
 

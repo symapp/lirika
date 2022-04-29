@@ -23,6 +23,10 @@ export default function AlbumPage({session}) {
                 const album = await getAlbumById(id)
                 setAlbum(album)
             } catch (e) {
+                if (e.status === 404) {
+                    await router.push("/404")
+                    return
+                }
                 alert("Couldn't load album...")
             }
         }
@@ -67,13 +71,13 @@ export default function AlbumPage({session}) {
                     <h2>
                         {
                             album.artists.length > 0
-                            ?
-                            album.artists.map((artist) => {
-                                return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
-                                    {artist.name}
-                                </Link>
-                            }).reduce((prev, curr) => [prev, ', ', curr])
-                            :
+                                ?
+                                album.artists.map((artist) => {
+                                    return <Link href={`/artist/${artist.id}`} passHref key={artist.id}>
+                                        {artist.name}
+                                    </Link>
+                                }).reduce((prev, curr) => [prev, ', ', curr])
+                                :
                                 <>Unknown</>
                         } - {
                         album.year

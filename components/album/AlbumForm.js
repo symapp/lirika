@@ -96,7 +96,7 @@ export default function AlbumForm({session, albumToEdit}) {
         let options = select && select.options;
         let opt;
 
-        for (let i=0, iLen=options.length; i<iLen; i++) {
+        for (let i = 0, iLen = options.length; i < iLen; i++) {
             opt = options[i];
 
             if (opt.selected) {

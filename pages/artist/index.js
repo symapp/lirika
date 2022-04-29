@@ -1,10 +1,9 @@
-import styles from "./index.module.css"
 import {useEffect, useState} from "react";
 import {getAllArtists} from "@lib/api";
 import ArtistList from "@components/artist/ArtistList";
 import Link from "next/link";
 
-export default function ArtistsPage({ session }) {
+export default function ArtistsPage({session}) {
     const [artists, setArtists] = useState([])
 
     useEffect(() => {
@@ -24,7 +23,7 @@ export default function ArtistsPage({ session }) {
     return (
         <div>
             <h1>Artists</h1>
-            <ArtistList artists={artists} />
+            <ArtistList artists={artists}/>
             <div className="buttons">
                 {session.user && <Link href="/artist/add" passHref>Add</Link>}
             </div>

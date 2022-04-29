@@ -45,12 +45,12 @@ export default function SongCompact({song, session, album, likedSongs, setLikedS
         <div className={styles.song}>
             <Link href={`/song/${song.id}`} passHref>
                 <div className={styles.imageContainer}>
-                            <Image
-                                src={song.filePath}
-                                alt="cover"
-                                layout="fill"
-                                objectFit="cover"
-                            />
+                    <Image
+                        src={song.filePath}
+                        alt="cover"
+                        layout="fill"
+                        objectFit="cover"
+                    />
                 </div>
             </Link>
 

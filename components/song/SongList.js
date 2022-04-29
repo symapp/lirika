@@ -27,7 +27,7 @@ export default function SongList({songs, session, album, numbers}) {
         setLikedSongs(newLikedSongs)
 
         try {
-            setLikedSongsTo(session, newLikedSongs)
+            await setLikedSongsTo(session, newLikedSongs)
         } catch (e) {
             alert("Couldn't update liked songs...")
         }

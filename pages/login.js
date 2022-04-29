@@ -9,7 +9,7 @@ const defaultUser = {
     password: ""
 }
 
-export default function LoginPage({ session }) {
+export default function LoginPage({session}) {
     useRedirectToHome(session)
 
     const router = useRouter()
@@ -23,7 +23,7 @@ export default function LoginPage({ session }) {
 
         setUser({
             ...user,
-            [name]:value
+            [name]: value
         })
 
         if (error) {
@@ -38,7 +38,7 @@ export default function LoginPage({ session }) {
             session.login(response)
             await router.push("/")
         } catch (e) {
-            if(e.status === 400) {
+            if (e.status === 400) {
                 setError("validation failed")
             } else {
                 alert("Couldn't login...")
@@ -59,8 +59,8 @@ export default function LoginPage({ session }) {
                     <input type="password" name="password" id="password" onChange={handleChange} value={user.password}/>
                 </fieldset>
                 <div className={"buttons"}>
-                    { error && <p className={"error"}>{error}</p> }
-                    { !error && <button type={"submit"}>LOGIN</button> }
+                    {error && <p className={"error"}>{error}</p>}
+                    {!error && <button type={"submit"}>LOGIN</button>}
                 </div>
             </form>
         </div>

@@ -1,4 +1,3 @@
-import styles from "./albumid.module.css"
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import {getAlbumById} from "@lib/api";
@@ -20,7 +19,11 @@ export default function AddSongToAlbumPage({session}) {
                 const album = await getAlbumById(albumId)
                 setAlbum(album)
             } catch (e) {
-                await router.push("/404")
+                if (e.status === 404) {
+                    await router.push("/404")
+                    return
+                }
+                alert("Couldn't load album...")
             }
         }
 

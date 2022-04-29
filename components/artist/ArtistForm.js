@@ -5,14 +5,12 @@ import styles from "./ArtistForm.module.css"
 import Image from "next/image";
 
 const defaultArtist = {
-    name: "",
-    image: ""
+    name: "", image: ""
 }
 
 const validateArtist = async (artist, artistToEdit) => {
     const errors = {
-        name: "",
-        image: ""
+        name: "", image: ""
     }
     let isValid = true
 
@@ -68,8 +66,7 @@ export default function ArtistForm({session, artistToEdit}) {
         const name = e.target.name
         const value = e.target.value
         setArtist({
-            ...artist,
-            [name]: value
+            ...artist, [name]: value
         })
     }
 
@@ -124,8 +121,7 @@ export default function ArtistForm({session, artistToEdit}) {
         setBase64Image(base64)
     }
 
-    return (
-        <form onSubmit={handleSubmit} className={styles.artistForm}>
+    return (<form onSubmit={handleSubmit} className={styles.artistForm}>
             <fieldset>
                 <label>Name</label>
                 <input type="text" name="name" onChange={handleChange} value={artist.name}/>
@@ -139,31 +135,24 @@ export default function ArtistForm({session, artistToEdit}) {
                     ref={fileInput}
                     onChange={onFileInputChange}
                 />
-                {
-                    (base64Image || artistToEdit) &&
-                    <div className={styles.previewContainer}>
-                        <div className={styles.imageContainer}>
-                            {
-                                base64Image ?
-                                    <Image
-                                        src={base64Image}
-                                        alt="image preview"
-                                        layout="fill"
-                                        objectFit="cover"
-                                    />
-                                    :
-                                    <Image
-                                        src={artistToEdit.filePath}
-                                        alt="image preview"
-                                        layout="fill"
-                                        objectFit="cover"
-                                    />
+                {(base64Image || artistToEdit) && <div className={styles.previewContainer}>
+                    <div className={styles.imageContainer}>
+                        {base64Image ? <Image
+                            src={base64Image}
+                            alt="image preview"
+                            layout="fill"
+                            objectFit="cover"
+                        /> : <Image
+                            src={artistToEdit.filePath}
+                            alt="image preview"
+                            layout="fill"
+                            objectFit="cover"
+                        />
 
-                            }
-                        </div>
-                        <p>Image Preview</p>
+                        }
                     </div>
-                }
+                    <p>Image Preview</p>
+                </div>}
 
                 {errors.image && <div>{errors.image}</div>}
             </fieldset>
@@ -172,6 +161,5 @@ export default function ArtistForm({session, artistToEdit}) {
                     {isLoading ? "Submitting..." : "Submit"}
                 </button>
             </div>
-        </form>
-    )
+        </form>)
 }

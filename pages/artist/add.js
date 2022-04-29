@@ -8,7 +8,7 @@ export default function AddArtistPage({session}) {
     return session.user && (
         <div className={styles.addArtist}>
             <h1>Add new artist</h1>
-            <ArtistForm session={session} />
+            <ArtistForm session={session}/>
         </div>
     )
 }

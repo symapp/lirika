@@ -1,9 +1,8 @@
-import styles from "./edit.module.css"
 import SongForm from "@components/song/SongForm";
 import {useRedirectToLogin} from "@lib/session";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import {getArtistByIdWithoutMoreInfo, getRawSongById} from "@lib/api";
+import {getRawSongById} from "@lib/api";
 
 export default function EditSongPage({session}) {
     useRedirectToLogin(session)
@@ -19,7 +18,11 @@ export default function EditSongPage({session}) {
                 const song = await getRawSongById(id)
                 setSong(song)
             } catch (e) {
-                if (e.status === 404) await router.push("/404")
+                if (e.status === 404) {
+                    await router.push("/404")
+                    return
+                }
+                alert("Couldn't load song...")
             }
         }
         loadSong()
