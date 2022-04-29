@@ -74,20 +74,21 @@ export default function SongList({songs, session, album, numbers, search}) {
 
     return shownSongs && (
         <div className={[styles.songList, numbers && styles.numbered].join(" ")}>
-                {
+            {
                 search && <div className={styles.searchBar}>
-                        <select value={searchParam} onChange={onChangeSelect}>
-                            <option value="">All</option>
-                            <option value="song">Song</option>
-                            <option value="album">Album</option>
-                            {
-                                session.user &&
-                                <option value="liked">Liked</option>
-                            }
-                        </select>
+                    <select value={searchParam} onChange={onChangeSelect}>
+                        <option value="">All</option>
+                        <option value="song">Song</option>
+                        <option value="album">Album</option>
+                        {
+                            session.user &&
+                            <option value="liked">Liked</option>
+                        }
+                    </select>
                     <input value={query} onChange={onChange} placeholder="search word"/>
                 </div>
             }
+
 
             {
                 shownSongs.sort((a, b) => a.lastEdit - b.lastEdit).map((song) => {
@@ -100,6 +101,10 @@ export default function SongList({songs, session, album, numbers, search}) {
 
                     )
                 })
+            }
+            {
+                shownSongs.length === 0 &&
+                <h3 className={styles.middle}>No songs</h3>
             }
         </div>
     )

@@ -130,7 +130,7 @@ export default function LyricsPage({session}) {
                     :
                     <h4>There are no lyrics</h4>
             }
-            {error && <div>{error}</div>}
+            {error && <div className={styles.error}>{error}</div>}
             <div className={"buttons"}>
                 <button onClick={addLyrics}>Add part</button>
                 <button onClick={deleteLastPart}>Delete last part</button>

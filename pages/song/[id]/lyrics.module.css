@@ -32,10 +32,11 @@
     min-height: 4rem;
     grid-column: 2;
 
+
     border: 2px solid #C1ABD6;
     background-color: transparent;
     color: #C1ABD6;
-    padding: 0.2rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 5px;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -59,6 +60,10 @@
 .song header {
     display: flex;
     align-items: flex-end;
+}
+
+.error {
+    text-align: center;
 }
 
 @media (min-width: 750px) {

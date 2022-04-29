@@ -4,10 +4,19 @@ With Lirika your can view songs, albums and artists and their information. After
 your songs. With an account you can also register and edit your artists, albums and songs. Songs have Lyrics which you
 can edit and every user can see.
 
+# Conclusion
+
+My current product has most of the requirements I planned in the start.
+I could have done more, but because I was often focused on the CSS (that I later had to change anyway) I could only implement the "minimum".
+With more time I could have implemented some features listen in the section "Possible todos".
+I also wasted some time on figuring out how relationships in json server work.
+If I restarted this project, I would have tried to implement a different db solution and also tried to implement static props or something similar.
+Implementing roles was something I had planned but later gave up on, because I would have had to configure json server further, which would have taken up a lot more of the time I had.
+\
+I am very happy with my end result. I was able to learn more about some react hooks, css and json server.
 # Possible todos
 
 - [ ] search
-    - [ ] song
     - [ ] album
     - [ ] artist
 - [ ] lyrics with timestamps
@@ -49,9 +58,14 @@ can edit and every user can see.
 | Procedure     | 1. Go to created song's page and click on delete<br/>2. Go to created album's page and click on delete<br/>3. Go to created artist's page and click on delete |
 | Expectation   | 1. Redirected to songs page, song deleted<br/>2. Redirected to albums page, album deleted<br/>3. Redirected to artists page, artist deleted                   |
 
-| ID            | T-05                                                                                                                                                                              |
+| ID            | T-06                                                                                                                                                                              |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Prerequisites | T-05, logged in, T-02 steps first                                                                                                                                                 |
 | Procedure     | 1. Go to created artist's page and click on delete<br/>2. Go to created album's page and click on delete                                                                          |
 | Expectation   | 1. Redirected to artists page, artist deleted<br/>2. Album has 0 artists (unknown), redirected to albums page, album deleted, in song page song that was in album was deleted too |
 
+| ID            | T-07                                                                                                                           |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------|
+| Prerequisites | T-05, logged in                                                                                                                |
+| Procedure     | In songs page input name of song or album with the corresponding search parameters or "liked"                                  |
+| Expectation   | All should search by song name and album name, song by song name, album by album name and liked should display all liked songs |

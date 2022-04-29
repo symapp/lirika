@@ -38,6 +38,10 @@
     background-color: #1e1e1e;
 }
 
+.middle {
+    text-align: center;
+}
+
 @media (min-width: 650px) {
     .songList .songContainer {
         display: grid;
